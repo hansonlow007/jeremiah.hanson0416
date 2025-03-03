@@ -97,6 +97,11 @@ body {
         font-size: 0.9rem !important;
     }
 
+    /* Hide GitHub button on mobile */
+    .github-btn {
+        display: none !important;
+    }
+
     /* Adjust couple names for mobile */
     .couple-names {
         display: flex !important;
@@ -157,7 +162,9 @@ body {
     }
     
     .couple-names {
-        font-size: 3.2rem !important;
+        display: inline-block !important;
+        white-space: nowrap !important;
+        font-size: 2.2rem !important;
         text-shadow: none;
     }
 
@@ -203,7 +210,8 @@ body {
     }
     
     .story-item h3 {
-        font-size: 2.2rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.6rem;
     }
     
     .couple-photo img {
@@ -223,18 +231,18 @@ body {
     }
 
     .detail-item {
-        padding: 1rem;
+        padding: 1.5rem;
         margin-bottom: 0.8rem;
     }
 
     .detail-item h3 {
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.6rem;
     }
 
     .detail-item p {
-        margin: 0.6rem 0;
-        font-size: 1.2rem !important;
-        line-height: 1.8;
+        margin: 0.4rem 0;
+        font-size: 0.9rem !important;
+        line-height: 1.5;
     }
 
     .our-story {
@@ -247,6 +255,13 @@ body {
 
     .nav-logo {
         height: 100px;
+    }
+
+    .couple-info .couple-names {
+        display: inline-block !important;
+        white-space: nowrap !important;
+        font-size: 2.5rem !important;
+        margin: 1rem 0.3rem;
     }
 }
 
@@ -285,8 +300,21 @@ body {
     }
 
     .couple-info .couple-names {
-        font-size: 2rem !important;
-        gap: 8px;
+        display: inline-block !important;
+        white-space: nowrap !important;
+        font-size: 1.8rem !important;
+        text-shadow: none;
+    }
+
+    .detail-item h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .detail-item p {
+        font-size: 0.85rem !important;
+        line-height: 1.4;
+        margin: 0.3rem 0;
     }
 }
 
@@ -661,7 +689,7 @@ h1 {
 
 /* Hero section 的 couple-names */
 .hero-section .couple-names {
-    font-size: 3em;
+    font-size: 2.5em;
     margin: 20px 0;
 }
 
@@ -894,17 +922,16 @@ h1 {
     margin-bottom: 1rem;
     position: relative;
     transition: transform 0.3s ease;
-    border: 2px solid rgba(138, 117, 191, 0.3);
+    border: none;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .detail-item:hover {
     transform: translateY(-5px);
-    border-color: rgba(138, 117, 191, 0.6);
     box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .detail-item::before {
@@ -1161,7 +1188,8 @@ h2 {
     }
     
     .story-item h3 {
-        font-size: 2.2rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.6rem;
     }
     
     .couple-photo img {
@@ -1181,18 +1209,18 @@ h2 {
     }
 
     .detail-item {
-        padding: 1rem;
+        padding: 1.5rem;
         margin-bottom: 0.8rem;
     }
 
     .detail-item h3 {
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.6rem;
     }
 
     .detail-item p {
-        margin: 0.6rem 0;
-        font-size: 1.2rem !important;
-        line-height: 1.8;
+        margin: 0.4rem 0;
+        font-size: 0.9rem !important;
+        line-height: 1.5;
     }
 
     .our-story {
@@ -1255,7 +1283,8 @@ h2 {
     }
     
     .story-item h3 {
-        font-size: 2rem !important;
+        font-size: 1.2rem !important;
+        margin-bottom: 0.5rem;
     }
     
     .couple-photo img {
@@ -1279,13 +1308,13 @@ h2 {
     }
 
     .detail-item h3 {
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.5rem;
     }
 
     .detail-item p {
-        margin: 0.4rem 0;
-        font-size: 1.1rem !important;
-        line-height: 1.6;
+        margin: 0.3rem 0;
+        font-size: 0.85rem !important;
+        line-height: 1.5;
     }
 
     .our-story {
@@ -1533,7 +1562,7 @@ h1,
     align-items: center;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
-    border: 2px solid rgba(138, 117, 191, 0.3);
+    border: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     position: relative;
@@ -1542,7 +1571,6 @@ h1,
 
 .dress-code-content:hover {
     transform: translateY(-5px);
-    border-color: rgba(138, 117, 191, 0.6);
     box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
     background-color: rgba(255, 255, 255, 0.8);
 }
