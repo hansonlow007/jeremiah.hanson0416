@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Jeremiah & Hanson's Wedding Invitation">
+    <meta name="theme-color" content="#9B89C9">
     <title>Jeremiah & Hanson's Wedding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -13,18 +16,23 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Playfair Display', serif;
             overflow-x: hidden;
             background-image: linear-gradient(rgb(228, 224, 237), rgba(236, 233, 240, 0.505));
+            min-height: 100vh;
+            width: 100vw;
+            position: relative;
         }
 
         .home-container {
             min-height: 100vh;
+            width: 100%;
             background: linear-gradient(rgba(214, 206, 230, 0.7), rgba(214, 206, 230, 0.7)), 
-                        url('images/background.jpg');
+                        url('./images/background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -34,6 +42,7 @@
             align-items: center;
             text-align: center;
             position: relative;
+            padding: 20px;
         }
 
         .language-switch {
@@ -56,6 +65,12 @@
             font-size: 1rem;
             min-height: 44px;
             min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .lang-btn:hover {
@@ -63,12 +78,16 @@
             transform: translateY(-2px);
         }
 
+        .lang-btn:active {
+            transform: translateY(1px);
+        }
+
         .lang-btn.active {
             background-color: #8A75BF;
         }
 
         .content-wrapper {
-            padding: 60px;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.6);
             border-radius: 20px;
             margin: 20px;
@@ -80,6 +99,8 @@
             flex-direction: column;
             align-items: center;
             gap: 30px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .content-wrapper:hover {
@@ -90,14 +111,21 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         .logo {
             width: 300px;
             height: auto;
             margin-bottom: 20px;
+            object-fit: contain;
         }
 
         .names {
@@ -110,6 +138,8 @@
             margin: 20px 0;
             animation: gradient 6s ease infinite;
             background-size: 200% 200%;
+            width: 100%;
+            text-align: center;
         }
 
         @keyframes gradient {
@@ -119,7 +149,9 @@
         }
 
         .enter-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 15px 40px;
             margin-top: 20px;
             background-color: #9B89C9;
@@ -129,6 +161,8 @@
             font-size: 1.2em;
             transition: all 0.3s ease;
             border: none;
+            min-width: 200px;
+            min-height: 50px;
         }
 
         .enter-btn:hover {
@@ -137,11 +171,16 @@
             box-shadow: 0 5px 15px rgba(138, 117, 191, 0.3);
         }
 
+        .enter-btn:active {
+            transform: translateY(1px);
+        }
+
         .section-divider {
             position: relative;
             text-align: center;
             height: 40px;
             margin: 10px 0;
+            width: 100%;
         }
 
         .section-divider .line {
@@ -178,17 +217,26 @@
         .active { display: block; }
 
         @media (max-width: 768px) {
+            .home-container {
+                padding: 15px;
+            }
             .content-wrapper {
                 padding: 30px;
                 margin: 15px;
+                width: 95%;
             }
             .logo {
                 width: 250px;
             }
-            .names { font-size: 3em; }
+            .names { 
+                font-size: 3em; 
+                padding: 0 10px;
+            }
             .enter-btn { 
                 padding: 12px 30px;
                 font-size: 1.1em;
+                min-width: 180px;
+                min-height: 46px;
             }
             .language-switch {
                 top: 15px;
@@ -197,21 +245,32 @@
             .lang-btn {
                 padding: 10px 20px;
                 font-size: 0.9rem;
+                min-height: 40px;
+                min-width: 40px;
             }
         }
 
         @media (max-width: 380px) {
+            .home-container {
+                padding: 10px;
+            }
             .content-wrapper {
                 padding: 20px;
                 margin: 10px;
+                width: 95%;
             }
             .logo {
                 width: 200px;
             }
-            .names { font-size: 2.5em; }
+            .names { 
+                font-size: 2.5em;
+                padding: 0 5px;
+            }
             .enter-btn { 
                 padding: 10px 25px;
                 font-size: 1em;
+                min-width: 160px;
+                min-height: 44px;
             }
             .language-switch {
                 top: 10px;
@@ -220,6 +279,33 @@
             .lang-btn {
                 padding: 8px 16px;
                 font-size: 0.8rem;
+                min-height: 36px;
+                min-width: 36px;
+            }
+            .section-divider .line {
+                width: 60px;
+            }
+            .section-divider .heart {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .names {
+                font-size: 2.2em;
+            }
+            .logo {
+                width: 180px;
+            }
+            .enter-btn {
+                padding: 8px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        @supports not (backdrop-filter: blur(5px)) {
+            .content-wrapper {
+                background: rgba(255, 255, 255, 0.85);
             }
         }
     </style>
@@ -227,8 +313,8 @@
 <body>
     <div class="home-container">
         <div class="language-switch">
-            <button class="lang-btn" onclick="switchLanguage('zh')">中文</button>
-            <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+            <button class="lang-btn" onclick="switchLanguage('zh')" aria-label="Switch to Chinese">中文</button>
+            <button class="lang-btn" onclick="switchLanguage('en')" aria-label="Switch to English">English</button>
         </div>
 
         <div class="content-wrapper">
@@ -238,11 +324,11 @@
                 <span class="line right"></span>
             </div>
 
-            <img src="images/wedding logo.png" alt="Wedding Logo" class="logo">
+            <img src="./images/wedding logo.png" alt="Wedding Logo" class="logo">
 
             <div class="names">Jeremiah & Hanson</div>
 
-            <a href="invitation.html" class="enter-btn">
+            <a href="./invitation.html" class="enter-btn">
                 <span class="en">View Invitation</span>
                 <span class="zh">查看邀請函</span>
             </a>
@@ -257,26 +343,33 @@
 
     <script>
         function switchLanguage(lang) {
-            // 移除所有按鈕的active類
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            
-            if (lang === 'zh') {
-                document.querySelectorAll('.zh').forEach(el => el.classList.add('active'));
-                document.querySelectorAll('.en').forEach(el => el.classList.remove('active'));
-                // 為中文按鈕添加active類
-                document.querySelector('.lang-btn:first-child').classList.add('active');
-            } else {
-                document.querySelectorAll('.en').forEach(el => el.classList.add('active'));
-                document.querySelectorAll('.zh').forEach(el => el.classList.remove('active'));
-                // 為英文按鈕添加active類
-                document.querySelector('.lang-btn:last-child').classList.add('active');
-            }
+            document.querySelectorAll('.zh, .en').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.' + lang).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(lang)) {
+                    btn.classList.add('active');
+                }
+            });
+            localStorage.setItem('preferredLanguage', lang);
         }
 
-        // 設置默認語言
-        window.onload = function() {
-            switchLanguage('en');
-        }
+        // 設置預設語言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(savedLang);
+        });
+
+        // 修復 iOS Safari 的背景固定問題
+        let lastScrollPosition = window.pageYOffset;
+        window.addEventListener('scroll', function() {
+            lastScrollPosition = window.pageYOffset;
+            document.querySelector('.home-container').style.backgroundPositionY = lastScrollPosition * 0.5 + 'px';
+        });
     </script>
 </body>
 </html>
