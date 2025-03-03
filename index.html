@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jeremiah & Hanson's Wedding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgb(228, 224, 237), rgba(236, 233, 240, 0.505));
+        }
+
+        .home-container {
+            min-height: 100vh;
+            background: linear-gradient(rgba(214, 206, 230, 0.7), rgba(214, 206, 230, 0.7)), 
+                        url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background-color: #9B89C9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .lang-btn:hover {
+            background-color: #8A75BF;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background-color: #8A75BF;
+        }
+
+        .content-wrapper {
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            margin: 20px;
+            animation: fadeIn 1.5s ease-out;
+            box-shadow: 0 8px 25px rgba(138, 117, 191, 0.25);
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .content-wrapper:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 12px 30px rgba(138, 117, 191, 0.35);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            background: linear-gradient(45deg, #B76E79, #E8C5B4, #DFC5A4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0;
+            animation: gradient 6s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .enter-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin-top: 20px;
+            background-color: #9B89C9;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .enter-btn:hover {
+            background-color: #8A75BF;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 117, 191, 0.3);
+        }
+
+        .section-divider {
+            position: relative;
+            text-align: center;
+            height: 40px;
+            margin: 10px 0;
+        }
+
+        .section-divider .line {
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            background-color: #D9766D;
+            transform: translateY(-50%);
+        }
+
+        .section-divider .line.left {
+            right: 50%;
+            width: 80px;
+            margin-right: 15px;
+        }
+
+        .section-divider .line.right {
+            left: 50%;
+            width: 80px;
+            margin-left: 15px;
+        }
+
+        .section-divider .heart {
+            color: #D9766D;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .zh { display: none; }
+        .en { display: none; }
+        .active { display: block; }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 30px;
+                margin: 15px;
+            }
+            .logo {
+                width: 250px;
+            }
+            .names { font-size: 3em; }
+            .enter-btn { 
+                padding: 12px 30px;
+                font-size: 1.1em;
+            }
+            .language-switch {
+                top: 15px;
+                right: 15px;
+            }
+            .lang-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .content-wrapper {
+                padding: 20px;
+                margin: 10px;
+            }
+            .logo {
+                width: 200px;
+            }
+            .names { font-size: 2.5em; }
+            .enter-btn { 
+                padding: 10px 25px;
+                font-size: 1em;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+            }
+            .lang-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="home-container">
+        <div class="language-switch">
+            <button class="lang-btn" onclick="switchLanguage('zh')">中文</button>
+            <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="section-divider">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+
+            <img src="images/wedding logo.png" alt="Wedding Logo" class="logo">
+
+            <div class="names">Jeremiah & Hanson</div>
+
+            <a href="invitation.html" class="enter-btn">
+                <span class="en">View Invitation</span>
+                <span class="zh">查看邀請函</span>
+            </a>
+
+            <div class="section-divider">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // 移除所有按鈕的active類
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            
+            if (lang === 'zh') {
+                document.querySelectorAll('.zh').forEach(el => el.classList.add('active'));
+                document.querySelectorAll('.en').forEach(el => el.classList.remove('active'));
+                // 為中文按鈕添加active類
+                document.querySelector('.lang-btn:first-child').classList.add('active');
+            } else {
+                document.querySelectorAll('.en').forEach(el => el.classList.add('active'));
+                document.querySelectorAll('.zh').forEach(el => el.classList.remove('active'));
+                // 為英文按鈕添加active類
+                document.querySelector('.lang-btn:last-child').classList.add('active');
+            }
+        }
+
+        // 設置默認語言
+        window.onload = function() {
+            switchLanguage('en');
+        }
+    </script>
+</body>
+</html>

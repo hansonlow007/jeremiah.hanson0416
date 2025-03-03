@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>wedding invatation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style type="text/css">
+@import url("styles/styles.css");
+</style>
+</head>
+
+<body>
+	  <nav class="pink-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="images/wedding logo.png" alt="Wedding Logo">
+                </a>
+                <div class="music-controls">
+                    <button id="musicStop" class="music-btn">◼</button>
+                    <button id="musicPlay" class="music-btn">♪</button>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="pink-btn" onclick="switchLanguage('zh')">中文</button>
+                <button class="pink-btn" onclick="switchLanguage('en')">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <audio id="bgMusic" loop autoplay>
+        <source src="music/wedding-bgm.mp3" type="audio/mp3">
+    </audio>
+
+    <header class="slideshow-section">
+        <div class="slideshow-container">
+            <div class="slide fade first-slide">
+                <img src="images/slide1.jpg" alt="Wedding Photo 1">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide fade">
+                <img src="images/slide2.jpg" alt="Wedding Photo 2">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide fade">
+                <img src="images/slide3.jpg" alt="Wedding Photo 3">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide fade">
+                <img src="images/slide4.jpg" alt="Wedding Photo 4">
+                <div class="slide-overlay"></div>
+            </div>
+
+            <div class="slideshow-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="couple-info">
+            <div class="section-divider fade-in">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+            <h2 class="fade-in">
+                <span class="en">We're Getting Married!</span>
+                <span class="zh">我們結婚啦！</span>
+            </h2>
+            <div class="couple-photo-container fade-in">
+                <div class="photo-frame">
+                    <div class="couple-photo">
+                        <img src="images/main.jpg" alt="Our Photo">
+                    </div>
+                </div>
+            </div>
+            <div class="couple-names fade-in">Jeremiah & Hanson</div>
+            <div class="couple-social-links">
+                <a href="https://www.instagram.com/jeremiahliew.ig/" target="_blank" class="couple-social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>@jeremiahliew.ig</span>
+                </a>
+                <a href="https://www.instagram.com/hansonlow.ig/" target="_blank" class="couple-social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>@hansonlow.ig</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="our-story">
+            <div class="section-divider fade-in">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+            <h2 class="fade-in">
+                <span class="en">Photo Gallery</span>
+                <span class="zh">婚紗相簿</span>
+            </h2>
+            <div class="story-grid fade-in">
+                <div class="story-item fade-in" style="--item-index: 1">
+                    <img src="images/gallery1.jpg" alt="照片1">
+                </div>
+                <div class="story-item fade-in" style="--item-index: 2">
+                    <img src="images/gallery2.jpg" alt="照片2">
+                </div>
+                <div class="story-item fade-in" style="--item-index: 3">
+                    <img src="images/gallery3.jpg" alt="照片3">
+                </div>
+                <div class="story-item fade-in" style="--item-index: 4">
+                    <img src="images/gallery4.jpg" alt="照片4">
+                </div>
+                <div class="story-item fade-in" style="--item-index: 5">
+                    <img src="images/gallery5.jpg" alt="照片5">
+                </div>
+                <div class="story-item fade-in" style="--item-index: 6">
+                    <img src="images/gallery6.jpg" alt="照片6">
+                </div>
+            </div>
+        </section>
+
+        <section class="wedding-details">
+            <div class="section-divider fade-in">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+            <h2 class="fade-in">
+                <span class="en">Wedding Details</span>
+                <span class="zh">婚禮資訊</span>
+            </h2>
+            <div class="details-container fade-in">
+                <div class="detail-item fade-in">
+                    <h3>
+                        <span class="en">Date</span>
+                        <span class="zh">日期</span>
+                    </h3>
+                    <p>
+                        <span class="en">26th April 2025</span>
+                        <span class="zh">2025年4月26日</span>
+                    </p>
+                </div>
+                <div class="detail-item fade-in">
+                    <h3>
+                        <span class="en">Time</span>
+                        <span class="zh">時間</span>
+                    </h3>
+                    <p>
+                        <span class="en">2:00 PM</span>
+                        <span class="zh">下午 2:00</span>
+                    </p>
+                </div>
+                <div class="detail-item fade-in">
+                    <h3>
+                        <span class="en">Location</span>
+                        <span class="zh">地點</span>
+                    </h3>
+                    <p>
+                        <span class="en">True Light Gospel Church</span>
+                        <span class="zh">真光福音教會</span>
+                    </p>
+                    <p>
+                        <span class="en">Taipei City, Taiwan</span>
+                        <span class="zh">台北市</span>
+                    </p>
+                    <a href="https://maps.google.com/?q=真光福音教會" target="_blank" class="pink-btn map-btn">
+                        <span class="en">View Map</span>
+                        <span class="zh">查看地圖</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="dress-code">
+            <div class="section-divider fade-in">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+            <h2 class="fade-in">
+                <span class="en">Dress Code</span>
+                <span class="zh">穿著建議</span>
+            </h2>
+            <div class="dress-code-content fade-in">
+                <p>
+                    <span class="en">Semi-Formal Attire</span>
+                    <span class="zh">正式休閒服裝</span>
+                </p>
+                <div class="color-circles">
+                    <div class="circle white"></div>
+                    <div class="circle beige"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
