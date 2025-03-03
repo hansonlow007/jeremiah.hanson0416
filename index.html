@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremiah & Hanson's Wedding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -18,21 +18,19 @@
 
         body {
             font-family: 'Playfair Display', serif;
-            overflow-x: hidden;
-            background-image: linear-gradient(rgb(228, 224, 237), rgba(236, 233, 240, 0.505));
-        }
-
-        .home-container {
-            min-height: 100vh;
-            background: linear-gradient(rgba(214, 206, 230, 0.7), rgba(214, 206, 230, 0.7)), 
-                        url('images/background.jpg');
+            background-image: linear-gradient(rgba(214, 206, 230, 0.7), rgba(214, 206, 230, 0.7)), 
+                            url('images/background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .home-container {
+            width: 100%;
             text-align: center;
             position: relative;
         }
@@ -41,7 +39,6 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 100;
             display: flex;
             gap: 10px;
         }
@@ -50,60 +47,34 @@
             background-color: #9B89C9;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            min-height: 44px;
-            min-width: 44px;
+            font-size: 16px;
         }
 
-        .lang-btn:hover {
-            background-color: #8A75BF;
-            transform: translateY(-2px);
-        }
-
+        .lang-btn:hover,
         .lang-btn.active {
             background-color: #8A75BF;
         }
 
         .content-wrapper {
-            padding: 60px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            margin: 20px;
-            animation: fadeIn 1.5s ease-out;
-            box-shadow: 0 8px 25px rgba(138, 117, 191, 0.25);
-            max-width: 800px;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .content-wrapper:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.75);
-            box-shadow: 0 12px 30px rgba(138, 117, 191, 0.35);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
         }
 
         .logo {
-            width: 300px;
+            width: 250px;
             height: auto;
             margin-bottom: 20px;
         }
 
         .names {
             font-family: 'Dancing Script', cursive;
-            font-size: 4em;
+            font-size: 3.5em;
             background: linear-gradient(45deg, #B76E79, #E8C5B4, #DFC5A4);
             -webkit-background-clip: text;
             background-clip: text;
@@ -121,28 +92,24 @@
 
         .enter-btn {
             display: inline-block;
-            padding: 15px 40px;
-            margin-top: 20px;
+            padding: 12px 30px;
             background-color: #9B89C9;
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-            border: none;
+            font-size: 1.1em;
+            margin-top: 20px;
         }
 
         .enter-btn:hover {
             background-color: #8A75BF;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(138, 117, 191, 0.3);
         }
 
         .section-divider {
             position: relative;
             text-align: center;
             height: 40px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
 
         .section-divider .line {
@@ -194,7 +161,6 @@
             </div>
 
             <img src="images/wedding logo.png" alt="Wedding Logo" class="logo">
-
             <div class="names">Jeremiah & Hanson</div>
 
             <a href="invitation.html" class="enter-btn">
