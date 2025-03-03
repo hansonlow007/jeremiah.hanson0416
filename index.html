@@ -59,7 +59,7 @@
         }
 
         .content-wrapper {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.5);
             padding: 40px;
             border-radius: 10px;
             margin: 20px auto;
@@ -82,6 +82,30 @@
             margin: 20px 0;
             animation: gradient 6s ease infinite;
             background-size: 200% 200%;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content-wrapper {
+                padding: 30px;
+                margin: 15px;
+            }
+            
+            .names {
+                font-size: 2.8em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content-wrapper {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .names {
+                font-size: 2.2em;
+            }
         }
 
         @keyframes gradient {
@@ -154,12 +178,6 @@
         </div>
 
         <div class="content-wrapper">
-            <div class="section-divider">
-                <span class="line left"></span>
-                <span class="heart">♥</span>
-                <span class="line right"></span>
-            </div>
-
             <img src="images/wedding logo.png" alt="Wedding Logo" class="logo">
             <div class="names">Jeremiah & Hanson</div>
 
