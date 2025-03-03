@@ -75,29 +75,34 @@ function startSlideshow() {
 }
 
 // 語言切換功能
-function switchLanguage(lang) {
+function toggleLanguage() {
     const enElements = document.querySelectorAll('.en');
     const zhElements = document.querySelectorAll('.zh');
-    const enButton = document.querySelector('button[onclick="switchLanguage(\'en\')"]');
-    const zhButton = document.querySelector('button[onclick="switchLanguage(\'zh\')"]');
-
-    if (lang === 'en') {
-        enElements.forEach(el => el.style.display = 'inline-block');
-        zhElements.forEach(el => el.style.display = 'none');
-        enButton.classList.add('active');
-        zhButton.classList.remove('active');
-    } else {
-        zhElements.forEach(el => el.style.display = 'inline-block');
+    const langTexts = document.querySelectorAll('.lang-text');
+    
+    // 檢查當前是否為英文
+    const isCurrentlyEnglish = langTexts[1].classList.contains('active');
+    
+    // 切換語言文字的顯示
+    langTexts.forEach(text => text.classList.toggle('active'));
+    
+    // 切換內容的顯示
+    if (isCurrentlyEnglish) {
+        // 切換到中文
         enElements.forEach(el => el.style.display = 'none');
-        zhButton.classList.add('active');
-        enButton.classList.remove('active');
+        zhElements.forEach(el => el.style.display = 'inline-block');
+    } else {
+        // 切換到英文
+        zhElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = 'inline-block');
     }
 }
 
 // 音樂控制
 function toggleMusic() {
     const music = document.getElementById('bgMusic');
-    if (!music) return;
+    const musicBtn = document.getElementById('musicToggle');
+    if (!music || !musicBtn) return;
     
     if (music.paused) {
         music.play();
@@ -109,16 +114,15 @@ function toggleMusic() {
 }
 
 function updateMusicButtonStyle(isPlaying) {
-    const playBtn = document.getElementById('musicPlay');
-    const stopBtn = document.getElementById('musicStop');
-    if (!playBtn || !stopBtn) return;
+    const musicBtn = document.getElementById('musicToggle');
+    if (!musicBtn) return;
     
     if (isPlaying) {
-        playBtn.classList.add('playing');
-        stopBtn.classList.remove('playing');
+        musicBtn.style.backgroundColor = 'rgba(199, 96, 88, 0.9)';
+        musicBtn.innerHTML = '♪';
     } else {
-        playBtn.classList.remove('playing');
-        stopBtn.classList.add('playing');
+        musicBtn.style.backgroundColor = 'rgba(217, 118, 109, 0.8)';
+        musicBtn.innerHTML = '♪';
     }
 }
 
@@ -132,15 +136,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initMusic();
     
     // 為音樂按鈕添加點擊事件
-    const playBtn = document.getElementById('musicPlay');
-    const stopBtn = document.getElementById('musicStop');
-    if (playBtn && stopBtn) {
-        playBtn.addEventListener('click', () => toggleMusic());
-        stopBtn.addEventListener('click', () => toggleMusic());
+    const musicBtn = document.getElementById('musicToggle');
+    if (musicBtn) {
+        musicBtn.addEventListener('click', toggleMusic);
     }
     
     // 設置默認語言
-    switchLanguage('zh');
+    toggleLanguage();
     
     // 添加滾動動畫
     const observer = new IntersectionObserver((entries) => {

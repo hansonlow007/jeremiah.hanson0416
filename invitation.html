@@ -16,13 +16,14 @@
                     <img src="images/wedding logo.png" alt="Wedding Logo">
                 </a>
                 <div class="music-controls">
-                    <button id="musicStop" class="music-btn">◼</button>
-                    <button id="musicPlay" class="music-btn">♪</button>
+                    <button id="musicToggle" class="music-btn">♪</button>
                 </div>
             </div>
             <div class="nav-buttons">
-                <button class="pink-btn" onclick="switchLanguage('zh')">中文</button>
-                <button class="pink-btn" onclick="switchLanguage('en')">English</button>
+                <button class="pink-btn lang-btn" onclick="toggleLanguage()">
+                    <span class="lang-text active">切換語言：中文/英文</span>
+                    <span class="lang-text">Switch Language: EN/中</span>
+                </button>
             </div>
         </div>
     </nav>
