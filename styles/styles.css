@@ -2307,6 +2307,7 @@ h1,
     }
 
     .slide img {
+        height: 100%;
         object-position: center;
     }
 
