@@ -25,6 +25,8 @@ body {
 @media screen and (max-width: 1024px) {
     body {
         font-size: 16px;
+        background-size: 200% auto;
+        background-position: top center;
     }
 
     .hero-section,
@@ -135,7 +137,123 @@ body {
     .detail-item p { font-size: 1rem !important; }
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        background-size: 250% auto;
+        background-position: top center;
+        background-attachment: scroll;
+    }
+
+    .hero-overlay {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem !important;
+        text-shadow: none;
+    }
+    
+    .couple-names {
+        font-size: 3.2rem !important;
+        text-shadow: none;
+    }
+
+    .date-display {
+        font-size: 1.6rem !important;
+    }
+    
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 500px;
+    }
+    
+    .couple-info,
+    .our-story,
+    .wedding-details,
+    .dress-code {
+        height: auto;
+        min-height: 100vh;
+        padding: 3rem 1.5rem;
+    }
+
+    .details-container,
+    .story-grid,
+    .dress-code-content,
+    .couple-info-content {
+        padding: 1rem;
+    }
+
+    .couple-info::before,
+    .our-story::before,
+    .wedding-details::before,
+    .dress-code::before {
+        width: 150px;
+    }
+
+    .couple-info h2,
+    .our-story h2,
+    .wedding-details h2,
+    .dress-code h2 {
+        font-size: 3.2rem !important;
+        margin-bottom: 2rem;
+    }
+    
+    .story-item h3 {
+        font-size: 2.2rem !important;
+    }
+    
+    .couple-photo img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .details-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        gap: 0.3rem;
+    }
+
+    .wedding-details h2 {
+        font-size: 3.2rem !important;
+        margin-bottom: 2rem;
+    }
+
+    .detail-item {
+        padding: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .detail-item h3 {
+        margin-bottom: 0.8rem;
+    }
+
+    .detail-item p {
+        margin: 0.6rem 0;
+        font-size: 1.2rem !important;
+        line-height: 1.8;
+    }
+
+    .our-story {
+        padding: 3rem 1rem;
+    }
+
+    .pink-nav {
+        padding: 0.4rem 1rem;
+    }
+
+    .nav-logo {
+        height: 100px;
+    }
+}
+
 @media screen and (max-width: 380px) {
+    body {
+        background-size: 300% auto;
+        background-position: top center;
+        background-attachment: scroll;
+    }
+
     .nav-container {
         padding: 3px !important;
         gap: 4px !important;
@@ -2058,7 +2176,7 @@ h1,
     height: 70vh;
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 120px;
     box-sizing: border-box;
 }
 
@@ -2128,12 +2246,14 @@ h1,
 /* Responsive Design */
 @media (max-width: 768px) {
     .slideshow-section {
-        height: 80vh;
-        padding-top: 120px;
+        height: 300px;
+        padding-top: 80px;
     }
     
     .slide img {
-        object-position: center 20%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
     }
 
     .dot {
@@ -2149,12 +2269,14 @@ h1,
 
 @media (max-width: 380px) {
     .slideshow-section {
-        height: 70vh;
-        padding-top: 100px;
+        height: 250px;
+        padding-top: 70px;
     }
     
     .slide img {
-        object-position: center 25%;
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
     }
 
     .dot {
@@ -2397,7 +2519,7 @@ h1,
     height: 70vh;
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 120px;
     box-sizing: border-box;
 }
 
