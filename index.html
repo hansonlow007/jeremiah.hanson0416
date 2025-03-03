@@ -212,23 +212,19 @@
 
     <script>
         function switchLanguage(lang) {
-            // 移除所有按鈕的active類
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             
             if (lang === 'zh') {
                 document.querySelectorAll('.zh').forEach(el => el.classList.add('active'));
                 document.querySelectorAll('.en').forEach(el => el.classList.remove('active'));
-                // 為中文按鈕添加active類
                 document.querySelector('.lang-btn:first-child').classList.add('active');
             } else {
                 document.querySelectorAll('.en').forEach(el => el.classList.add('active'));
                 document.querySelectorAll('.zh').forEach(el => el.classList.remove('active'));
-                // 為英文按鈕添加active類
                 document.querySelector('.lang-btn:last-child').classList.add('active');
             }
         }
 
-        // 設置默認語言
         window.onload = function() {
             switchLanguage('en');
         }
