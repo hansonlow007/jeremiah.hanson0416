@@ -38,41 +38,58 @@ function initMusic() {
     }
 }
 
-// 幻燈片功能
-let slideIndex = 1;
-let slideInterval;
+// Slideshow functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 
-function showSlides(n) {
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
-    
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = "0";
+function showSlide(n) {
+    // Remove active class from current slide
+    const currentActiveSlide = document.querySelector('.slide.active');
+    if (currentActiveSlide) {
+        currentActiveSlide.classList.remove('active');
+        // Wait for the fade out transition
+        setTimeout(() => {
+            currentActiveSlide.style.display = 'none';
+        }, 800);
     }
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
+
+    // Calculate the new slide index
+    currentSlide = (n + slides.length) % slides.length;
     
-    slides[slideIndex-1].style.opacity = "1";
-    dots[slideIndex-1].className += " active";
+    // Show and activate the new slide
+    setTimeout(() => {
+        slides[currentSlide].style.display = 'block';
+        // Force a reflow
+        slides[currentSlide].offsetHeight;
+        slides[currentSlide].classList.add('active');
+    }, 50);
 }
 
-function currentSlide(n) {
-    clearInterval(slideInterval);
-    showSlides(slideIndex = n);
-    startSlideshow();
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+    });
+    nextBtn.addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+    });
 }
 
-function startSlideshow() {
-    showSlides(slideIndex);
-    slideInterval = setInterval(() => {
-        slideIndex++;
-        showSlides(slideIndex);
-    }, 5000);
-}
+// Auto advance slides every 5 seconds
+let slideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+
+// Pause auto-advance when user interacts with controls
+[prevBtn, nextBtn].forEach(btn => {
+    if (btn) {
+        btn.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        btn.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+        });
+    }
+});
 
 // 語言切換功能
 function toggleLanguage() {
@@ -105,11 +122,17 @@ function toggleMusic() {
     if (!music || !musicBtn) return;
     
     if (music.paused) {
-        music.play();
-        updateMusicButtonStyle(true);
+        music.play().then(() => {
+            musicBtn.classList.add('playing');
+            musicBtn.innerHTML = '♪';
+        }).catch(error => {
+            console.log("Play failed:", error);
+            musicBtn.classList.remove('playing');
+        });
     } else {
         music.pause();
-        updateMusicButtonStyle(false);
+        musicBtn.classList.remove('playing');
+        musicBtn.innerHTML = '♪';
     }
 }
 
@@ -118,10 +141,10 @@ function updateMusicButtonStyle(isPlaying) {
     if (!musicBtn) return;
     
     if (isPlaying) {
-        musicBtn.style.backgroundColor = 'rgba(199, 96, 88, 0.9)';
+        musicBtn.classList.add('playing');
         musicBtn.innerHTML = '♪';
     } else {
-        musicBtn.style.backgroundColor = 'rgba(217, 118, 109, 0.8)';
+        musicBtn.classList.remove('playing');
         musicBtn.innerHTML = '♪';
     }
 }
@@ -129,8 +152,7 @@ function updateMusicButtonStyle(isPlaying) {
 // 頁面加載時初始化
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化幻燈片
-    showSlides(slideIndex);
-    startSlideshow();
+    showSlide(currentSlide);
     
     // 初始化音樂
     initMusic();
