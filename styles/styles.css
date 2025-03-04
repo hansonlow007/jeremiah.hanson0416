@@ -503,6 +503,36 @@ body {
     .nav-logo {
         height: 90px !important;
     }
+
+    .map-btn {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem 1.2rem;
+        background: linear-gradient(45deg, #9B89C9, #8A75BF, #9B89C9);
+        background-size: 200% 200%;
+        animation: gradientBG 6s ease infinite;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 15px;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+    }
+
+    .map-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+        background: linear-gradient(45deg, #8A75BF, #9B89C9, #8A75BF);
+        background-size: 200% 200%;
+    }
 }
 
 /* iPhone Pro/Regular Models */
@@ -592,6 +622,36 @@ body {
     .nav-logo {
         height: 80px !important;
     }
+
+    .map-btn {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem 1.2rem;
+        background: linear-gradient(45deg, #9B89C9, #8A75BF, #9B89C9);
+        background-size: 200% 200%;
+        animation: gradientBG 6s ease infinite;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 15px;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+    }
+
+    .map-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+        background: linear-gradient(45deg, #8A75BF, #9B89C9, #8A75BF);
+        background-size: 200% 200%;
+    }
 }
 
 /* iPhone Mini Models */
@@ -680,6 +740,36 @@ body {
 
     .nav-logo {
         height: 70px !important;
+    }
+
+    .map-btn {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem 1.2rem;
+        background: linear-gradient(45deg, #9B89C9, #8A75BF, #9B89C9);
+        background-size: 200% 200%;
+        animation: gradientBG 6s ease infinite;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 15px;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+    }
+
+    .map-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+        background: linear-gradient(45deg, #8A75BF, #9B89C9, #8A75BF);
+        background-size: 200% 200%;
     }
 }
 
