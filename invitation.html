@@ -21,8 +21,8 @@
             </div>
             <div class="nav-buttons">
                 <button class="pink-btn lang-btn" onclick="toggleLanguage()">
-                    <span class="lang-text active">切換語言/Switch Language</span>
-                    <span class="lang-text">Switch Language/切換語言</span>
+                    <span class="lang-text en">Switch Language/切換語言</span>
+                    <span class="lang-text zh">切換語言/Switch Language</span>
                 </button>
             </div>
         </div>
@@ -191,6 +191,46 @@
             </div>
         </div>
     </main>
+    <script>
+        let currentLanguage = 'en';
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            // 更新所有語言相關元素的顯示狀態
+            document.querySelectorAll('.en, .zh').forEach(el => {
+                el.classList.remove('active');
+                if (el.classList.contains(lang)) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // 更新語言切換按鈕的狀態
+            document.querySelectorAll('.lang-text').forEach(el => {
+                el.classList.remove('active');
+                if (el.classList.contains(lang)) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'en' ? 'zh' : 'en';
+            switchLanguage(newLang);
+        }
+
+        // 頁面載入時執行
+        document.addEventListener('DOMContentLoaded', function() {
+            const lang = getUrlParameter('lang') || 'en';
+            switchLanguage(lang);
+        });
+    </script>
     <script src="scripts/script.js"></script>
 </body>
 </html>

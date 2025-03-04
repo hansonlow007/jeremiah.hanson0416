@@ -181,7 +181,7 @@
             <img src="images/wedding logo.png" alt="Wedding Logo" class="logo">
             <div class="names">Jeremiah & Hanson</div>
 
-            <a href="invitation.html" class="enter-btn">
+            <a href="#" onclick="goToInvitation(); return false;" class="enter-btn">
                 <span class="en">View Invitation</span>
                 <span class="zh">查看邀請函</span>
             </a>
@@ -195,7 +195,10 @@
     </div>
 
     <script>
+        let currentLanguage = 'en';
+
         function switchLanguage(lang) {
+            currentLanguage = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             
             if (lang === 'zh') {
@@ -207,6 +210,10 @@
                 document.querySelectorAll('.zh').forEach(el => el.classList.remove('active'));
                 document.querySelector('.lang-btn:last-child').classList.add('active');
             }
+        }
+
+        function goToInvitation() {
+            window.location.href = `invitation.html?lang=${currentLanguage}`;
         }
 
         window.onload = function() {

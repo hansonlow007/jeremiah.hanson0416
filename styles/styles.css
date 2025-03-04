@@ -221,32 +221,63 @@ body {
 
     .details-container {
         grid-template-columns: 1fr;
-        max-width: 400px;
-        gap: 0.3rem;
-    }
-
-    .wedding-details h2 {
-        font-size: 3.2rem !important;
-        margin-bottom: 2rem;
+        max-width: 100%;
+        gap: 1rem;
+        padding: 0.5rem;
+        margin: 0 auto;
     }
 
     .detail-item {
-        padding: 1.5rem;
-        margin-bottom: 0.8rem;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: transform 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
+        background-size: 200% 200%;
+        animation: gradientBG 6s ease infinite;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .detail-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
+        background-size: 200% 200%;
     }
 
     .detail-item h3 {
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.8rem;
+        font-size: 1.4rem !important;
+        text-align: center;
     }
 
     .detail-item p {
-        margin: 0.4rem 0;
-        font-size: 0.9rem !important;
-        line-height: 1.5;
+        margin: 0.5rem 0;
+        font-size: 1rem !important;
+        line-height: 1.6;
+        text-align: center;
     }
 
-    .our-story {
-        padding: 3rem 1rem;
+    .wedding-details {
+        padding: 2rem 1rem;
+    }
+
+    .wedding-details h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .map-btn {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: auto;
+        padding: 0.8rem 1.5rem;
     }
 
     .pink-nav {
@@ -307,14 +338,62 @@ body {
     }
 
     .detail-item h3 {
-        font-size: 1.2rem !important;
-        margin-bottom: 0.5rem;
+        font-size: 1.3rem !important;
     }
 
     .detail-item p {
-        font-size: 0.85rem !important;
-        line-height: 1.4;
-        margin: 0.3rem 0;
+        font-size: 0.95rem !important;
+    }
+
+    .wedding-details h2 {
+        font-size: 2.2rem !important;
+    }
+
+    .details-container {
+        padding: 0.3rem;
+    }
+
+    .couple-info::before,
+    .our-story::before,
+    .wedding-details::before,
+    .dress-code::before {
+        width: 100px;
+    }
+
+    .couple-info h2,
+    .our-story h2,
+    .wedding-details h2,
+    .dress-code h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .story-item h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .couple-photo img {
+        width: 200px;
+        height: 200px;
+        border-width: 3px;
+    }
+
+    .wedding-details {
+        padding: 0.8rem;
+    }
+
+    .story-item img {
+        height: 180px;
+    }
+
+    .pink-nav {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .nav-logo {
+        height: 80px;
+        padding: 2px auto 2px auto;
     }
 }
 
@@ -566,6 +645,35 @@ h2.fade-in {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Add styles for nav bar when overlapping with slideshow */
+.pink-nav.slideshow-overlap {
+    background-color: rgba(214, 206, 230, 0.2);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: none;
+}
+
+.pink-nav.slideshow-overlap .nav-logo {
+    transform: scale(0.8);
+    opacity: 0.8;
+}
+
+.pink-nav.slideshow-overlap .pink-btn {
+    background-color: rgba(155, 137, 201, 0.6);
+}
+
+.pink-nav.slideshow-overlap .music-btn {
+    opacity: 0.8;
+}
+
+/* Add transition for nav elements */
+.nav-logo,
+.pink-btn,
+.music-btn {
+    transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -1180,28 +1288,63 @@ h2 {
 
     .details-container {
         grid-template-columns: 1fr;
-        max-width: 400px;
-        gap: 0.3rem;
+        max-width: 100%;
+        gap: 1rem;
+        padding: 0.5rem;
+        margin: 0 auto;
+    }
+
+    .wedding-details {
+        padding: 2rem 1rem;
     }
 
     .wedding-details h2 {
-        font-size: 3.2rem !important;
-        margin-bottom: 2rem;
+        font-size: 2.5rem !important;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .map-btn {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: auto;
+        padding: 0.8rem 1.5rem;
     }
 
     .detail-item {
-        padding: 1.5rem;
-        margin-bottom: 0.8rem;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: transform 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
+        background-size: 200% 200%;
+        animation: gradientBG 6s ease infinite;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .detail-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
+        background-size: 200% 200%;
     }
 
     .detail-item h3 {
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.8rem;
+        font-size: 1.4rem !important;
+        text-align: center;
     }
 
     .detail-item p {
-        margin: 0.4rem 0;
-        font-size: 0.9rem !important;
-        line-height: 1.5;
+        margin: 0.5rem 0;
+        font-size: 1rem !important;
+        line-height: 1.6;
+        text-align: center;
     }
 
     .our-story {
@@ -1279,23 +1422,19 @@ h2 {
     }
 
     .wedding-details h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
+        font-size: 2.2rem !important;
     }
 
     .detail-item {
-        padding: 0.8rem;
-        margin-bottom: 0.6rem;
+        padding: 1rem;
     }
 
     .detail-item h3 {
-        margin-bottom: 0.5rem;
+        font-size: 1.3rem !important;
     }
 
     .detail-item p {
-        margin: 0.3rem 0;
-        font-size: 0.85rem !important;
-        line-height: 1.5;
+        font-size: 0.95rem !important;
     }
 
     .our-story {
