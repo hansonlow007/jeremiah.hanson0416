@@ -2770,3 +2770,18 @@ p, h1, h2, h3, h4, h5, h6, span, input, textarea {
     -moz-user-select: text;
     -ms-user-select: text;
 }
+
+/* 統一桌面版標題大小 */
+h2,
+.couple-info h2,
+.our-story h2,
+.wedding-details h2,
+.dress-code h2,
+.wishes-section h2 {
+    font-size: 3.2rem !important;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    color: #D9766D;
+}
+
