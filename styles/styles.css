@@ -2783,5 +2783,27 @@ h2,
     text-align: center;
     font-family: 'Great Vibes', cursive;
     color: #D9766D;
+    font-weight: normal !important;  /* 統一字重 */
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* 統一底部裝飾線 */
+h2::after,
+.couple-info h2::after,
+.our-story h2::after,
+.wedding-details h2::after,
+.dress-code h2::after,
+.wishes-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: #D9766D;
+    opacity: 0.5;
 }
 
