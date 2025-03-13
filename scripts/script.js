@@ -1,3 +1,18 @@
+// Initialize Firebase first
+const firebaseConfig = {
+    apiKey: "AIzaSyBgwPiHEdcDsXsLZFRhnXkTRhjlCDABRLk",
+    authDomain: "wedding-wishes-62bc2.firebaseapp.com",
+    projectId: "wedding-wishes-62bc2",
+    storageBucket: "wedding-wishes-62bc2.firebasestorage.app",
+    messagingSenderId: "123234430250",
+    appId: "1:123234430250:web:d5ba30ae8858ce2a7e8253",
+    measurementId: "G-3L8LNT5PQL"
+};
+
+// Initialize Firebase globally
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 // 當頁面加載完成時自動播放音樂
 function initMusic() {
     const music = document.getElementById('bgMusic');
@@ -180,4 +195,111 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.fade-in').forEach((element) => {
         observer.observe(element);
     });
-}); 
+
+    // 添加切換留言顯示的功能
+    const toggleButton = document.getElementById('toggleWishes');
+    const wishesDisplay = document.querySelector('.wishes-display');
+    const showTexts = document.querySelectorAll('.show-text');
+    const hideTexts = document.querySelectorAll('.hide-text');
+    let isVisible = false;
+
+    toggleButton.addEventListener('click', function() {
+        isVisible = !isVisible;
+        wishesDisplay.style.display = isVisible ? 'block' : 'none';
+        
+        // 切換按鈕文字
+        showTexts.forEach(text => text.style.display = isVisible ? 'none' : 'block');
+        hideTexts.forEach(text => text.style.display = isVisible ? 'block' : 'none');
+        
+        // 如果顯示留言，滾動到留言區域
+        if (isVisible) {
+            wishesDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Handle form submission with debug logging
+document.getElementById('wishesForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+    
+    const guestName = document.getElementById('guestName').value;
+    const wishMessage = document.getElementById('wishMessage').value;
+    console.log("Input values:", { guestName, wishMessage });
+    
+    try {
+        const docRef = await db.collection('wishes').add({
+            name: guestName,
+            message: wishMessage,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        console.log("Wish added with ID:", docRef.id);
+        
+        document.getElementById('wishesForm').reset();
+        alert(currentLanguage === 'en' ? 'Thank you for your wishes!' : '感謝您的祝福！');
+        loadWishes();
+    } catch (error) {
+        console.error("Error adding wish:", error);
+        alert(currentLanguage === 'en' ? 'Failed to send wishes. Please try again.' : '送出失敗，請重試。');
+    }
+});
+
+// Load wishes with debug logging
+async function loadWishes() {
+    console.log("Loading wishes...");
+    const wishesList = document.getElementById('wishesList');
+    wishesList.innerHTML = '';
+    
+    try {
+        const snapshot = await db.collection('wishes')
+            .orderBy('timestamp', 'desc')
+            .get();
+            
+        console.log("Fetched wishes count:", snapshot.size);
+        
+        snapshot.forEach(doc => {
+            const wish = doc.data();
+            console.log("Processing wish:", wish);
+            const wishElement = createWishElement(wish);
+            wishesList.appendChild(wishElement);
+        });
+    } catch (error) {
+        console.error("Error loading wishes:", error);
+    }
+}
+
+// Call loadWishes when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM loaded, initializing wishes...");
+    loadWishes();
+});
+
+// 創建留言元素
+function createWishElement(wish) {
+    const div = document.createElement('div');
+    div.className = 'wish-item';
+    
+    const timestamp = wish.timestamp ? wish.timestamp.toDate() : new Date();
+    const formattedDate = timestamp.toLocaleDateString();
+    const formattedTime = timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    div.innerHTML = `
+        <div class="header">
+            <div class="guest-name">${escapeHtml(wish.name)}</div>
+            <div class="timestamp">${formattedDate} ${formattedTime}</div>
+        </div>
+        <div class="message">${escapeHtml(wish.message)}</div>
+    `;
+    
+    return div;
+}
+
+// HTML 轉義函數
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+} 

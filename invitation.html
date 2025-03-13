@@ -190,6 +190,57 @@
                 </div>
             </div>
         </div>
+
+        <section class="wishes-section">
+            <div class="section-divider fade-in">
+                <span class="line left"></span>
+                <span class="heart">♥</span>
+                <span class="line right"></span>
+            </div>
+            <h2 class="fade-in">
+                <span class="en">Wishes</span>
+                <span class="zh"><b>給新人的祝福</b></span>
+            </h2>
+            
+            <!-- 留言表單 -->
+            <div class="wishes-form-container fade-in">
+                <form id="wishesForm" class="wishes-form">
+                    <div class="form-group">
+                        <input type="text" id="guestName" required placeholder=" ">
+                        <label for="guestName">
+                            <span class="en">Your Name</span>
+                            <span class="zh">你的名字</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="wishMessage" required placeholder=" "></textarea>
+                        <label for="wishMessage">
+                            <span class="en">Your Wishes</span>
+                            <span class="zh">祝福留言</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="pink-btn">
+                        <span class="en">Send Wishes</span>
+                        <span class="zh">送出祝福</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- 在 wishes-display 之前添加切換按鈕 -->
+            <button id="toggleWishes" class="toggle-wishes-btn">
+                <span class="en show-text">▼ View Wishes</span>
+                <span class="en hide-text" style="display: none;">▲ Hide Wishes</span>
+                <span class="zh show-text">▼ 查看留言</span>
+                <span class="zh hide-text" style="display: none;">▲ 收起留言</span>
+            </button>
+
+            <!-- 修改 wishes-display 的初始狀態 -->
+            <div class="wishes-display" style="display: none;">
+                <div id="wishesList" class="wishes-list">
+                    <!-- 留言會動態插入這裡 -->
+                </div>
+            </div>
+        </section>
     </main>
     <script>
         let currentLanguage = 'en';
@@ -231,6 +282,8 @@
             switchLanguage(lang);
         });
     </script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="scripts/script.js"></script>
 </body>
 </html>
