@@ -2793,10 +2793,20 @@ h2,
     text-align: center;
     font-family: 'Great Vibes', cursive;
     color: #D9766D;
-    font-weight: normal !important;  /* 統一字重 */
+    font-weight: bold !important;  /* 改為粗體 */
     letter-spacing: 2px;
     position: relative;
     padding-bottom: 1rem;
+}
+
+.wishes-section h1 {
+    font-family: 'Playfair Display', serif;
+    color: #D9766D;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold !important;  /* 改為粗體 */
+    line-height: 1.4;
+    text-shadow: none !important;
 }
 
 /* 統一底部裝飾線 */
