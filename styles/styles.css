@@ -2591,7 +2591,7 @@ h1,
 
 .form-group textarea,
 .form-group input {
-    width: 350px !important;
+    width: 300px !important;
     min-height: 40px !important;
     height: 40px !important;
     padding: 2px 8px !important;
@@ -2616,7 +2616,7 @@ h1,
     .form-group textarea,
     .form-group input {
         width: 80% !important;    /* 使用百分比寬度 */
-        max-width: 350px !important; /* 最大寬度限制 */
+        max-width: 250px !important; /* 最大寬度限制 */
         margin-left: auto;        /* 自動邊距實現置中 */
         margin-right: auto;
         text-align: left;  /* 確保手機版也是左對齊 */
@@ -2631,7 +2631,7 @@ h1,
 @media (max-width: 380px) {
     .form-group textarea,
     .form-group input {
-        width: 90% !important;    /* 更小螢幕使用更大的百分比 */
+        width: 100% !important;    /* 更小螢幕使用更大的百分比 */
     }
 }
 
