@@ -19,6 +19,12 @@ body {
     overflow-x: hidden;
     font-size: 16px; /* Base font size */
     -webkit-text-size-adjust: 100%; /* 防止 iOS 自動調整字體大小 */
+    -webkit-touch-callout: none;  /* iOS Safari */
+    -webkit-user-select: none;    /* Safari */
+    -khtml-user-select: none;     /* Konqueror HTML */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* Internet Explorer/Edge */
+    user-select: none;            /* Non-prefixed version */
 }
 
 /* Basic Mobile Responsive */
@@ -2337,64 +2343,85 @@ h1,
 
 .wishes-form-container {
     width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0.5rem;
+    max-width: 500px;  /* 與 wedding details 容器寬度一致 */
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wishes-form {
-    padding: 1.2rem;
-    border: none;
-    background: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
 }
 
 .wishes-display {
     width: 100%;
-    max-width: 1200px;
+    max-width: 500px;  /* 與 wedding details 容器寬度一致 */
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 0 1rem;
+    height: 100%;
 }
 
 .wishes-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;  /* 單列顯示 */
     gap: 1rem;
+    width: 100%;
 }
 
+/* 更新留言卡片樣式以匹配 wedding details */
 .wish-item {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
     position: relative;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     border: none;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 15px rgba(217, 118, 109, 0.1);
-    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
+    background-size: 200% 200%;
+    animation: gradientBG 6s ease infinite;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.wish-item::before {
-    content: '❤';
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.2rem;
-    color: rgba(217, 118, 109, 0.2);
+.wish-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
+    background-size: 200% 200%;
 }
 
 .wish-item .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
     border-bottom: 1px solid rgba(217, 118, 109, 0.1);
 }
 
 .wish-item .guest-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem !important;
+    font-weight: bold !important;  /* 添加粗體 */
     color: #D9766D;
     margin: 0;
+    text-align: left;
+}
+
+.wish-item .message {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+    padding-top: 0.8rem;
+    text-align: left;  /* 改為左對齊 */
 }
 
 .wish-item .timestamp {
@@ -2403,28 +2430,51 @@ h1,
     font-family: 'Playfair Display', serif;
 }
 
-.wish-item .message {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    margin: 0;
-    padding-top: 1rem;
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .wish-item {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .wish-item .guest-name {
+        font-size: 1.2rem !important;
+        font-weight: bold !important;
+    }
+
+    .wish-item .message {
+        font-size: 1rem !important;
+    }
 }
 
-.wish-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(217, 118, 109, 0.15);
-    background: rgba(255, 255, 255, 0.98);
+@media (max-width: 380px) {
+    .wish-item {
+        padding: 1rem;
+    }
+
+    .wish-item .guest-name {
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
+    }
+
+    .wish-item .message {
+        font-size: 0.9rem !important;
+    }
 }
 
+/* 更新送出祝福按鈕樣式 */
 .pink-btn[type="submit"] {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
     padding: 0.8rem 2.5rem;
     background: #8A75BF;
     color: white;
     text-decoration: none;
     border-radius: 25px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
@@ -2433,10 +2483,22 @@ h1,
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.pink-btn[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(138, 117, 191, 0.3);
-    background: #7563a8;
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .pink-btn[type="submit"] {
+        width: 200px !important;        /* 固定寬度 */
+        padding: 0.6rem 1.2rem;         /* 減少內邊距 */
+        font-size: 1rem;                /* 稍微縮小字體 */
+        margin: 0.8rem auto;            /* 減少外邊距 */
+    }
+}
+
+@media (max-width: 380px) {
+    .pink-btn[type="submit"] {
+        width: 180px !important;        /* 更小的寬度 */
+        padding: 0.5rem 1rem;           /* 更小的內邊距 */
+        font-size: 0.9rem;              /* 更小的字體 */
+    }
 }
 
 @media (max-width: 1200px) {
@@ -2474,8 +2536,9 @@ h1,
     }
 
     .wishes-display {
-        width: 100%;
+        width: 80%;
         max-width: 500px;
+        height: 100%;
         margin: 0 auto;
         padding: 0 1rem;
     }
@@ -2518,24 +2581,58 @@ h1,
 /* 更新表單標籤樣式 */
 .form-group {
     position: relative;
-    margin-bottom: 1.5rem;  /* 減少底部間距 */
+    margin-bottom: 1.5rem;
     text-align: center;
+    display: flex;
+    justify-content: center;  /* 水平置中 */
+    align-items: center;      /* 垂直置中 */
+    width: 100%;
 }
 
 .form-group textarea,
 .form-group input {
-    width: 100%;
-    min-height: 25px !important;  /* 更短的高度 */
-    height: 25px !important;      /* 更短的高度 */
-    padding: 4px 8px !important;  /* 更小的內邊距 */
-    border: 2px solid rgba(138, 117, 191, 0.3);
-    border-radius: 8px;           /* 更小的圓角 */
-    font-size: 0.9rem !important; /* 更小的字體 */
+    width: 350px !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 2px 8px !important;
+    border: 1px solid rgba(138, 117, 191, 0.3);
+    border-radius: 6px;
+    font-size: 0.9rem !important;
     background: white;
     transition: all 0.3s ease;
-    margin-top: 2rem;            /* 減少頂部間距 */
-    line-height: 1 !important;    /* 最小行高 */
+    margin-top: 2rem;
+    line-height: 1 !important;
     resize: none;
+    text-align: left;  /* 確保輸入框文字左對齊 */
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .form-group {
+        margin-bottom: 1.2rem;
+        padding: 0;
+    }
+
+    .form-group textarea,
+    .form-group input {
+        width: 80% !important;    /* 使用百分比寬度 */
+        max-width: 350px !important; /* 最大寬度限制 */
+        margin-left: auto;        /* 自動邊距實現置中 */
+        margin-right: auto;
+        text-align: left;  /* 確保手機版也是左對齊 */
+    }
+
+    .wish-item .guest-name,
+    .wish-item .message {
+        text-align: left;  /* 確保手機版也是左對齊 */
+    }
+}
+
+@media (max-width: 380px) {
+    .form-group textarea,
+    .form-group input {
+        width: 90% !important;    /* 更小螢幕使用更大的百分比 */
+    }
 }
 
 /* 更新標籤樣式 */
@@ -2570,9 +2667,9 @@ h1,
     .form-group textarea,
     .form-group input {
         margin-top: 1.8rem;       /* 更小的頂部間距 */
-        min-height: 25px !important;
-        height: 25px !important;
-        padding: 4px 8px !important;
+        min-height: 40px !important;
+        height: 40px !important;
+        padding: 1px 8px !important;
         font-size: 0.9rem !important;
     }
 
@@ -2589,9 +2686,9 @@ h1,
     .form-group textarea,
     .form-group input {
         margin-top: 1.5rem;
-        min-height: 25px !important;
-        height: 25px !important;
-        padding: 4px 8px !important;
+        min-height: 15px !important;
+        height: 40px !important;
+        padding: 1px 8px !important;
     }
 }
 
@@ -2655,4 +2752,21 @@ h1,
         font-size: 0.85rem;
         padding: 0.4rem 1rem;
     }
+}
+
+/* 防止圖片下載 */
+img {
+    pointer-events: none;  /* 禁用滑鼠事件 */
+    user-select: none;     /* 禁用選取 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* 保持文字可以選取 */
+p, h1, h2, h3, h4, h5, h6, span, input, textarea {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }

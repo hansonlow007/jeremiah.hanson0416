@@ -1,12 +1,12 @@
 // Initialize Firebase first
 const firebaseConfig = {
-    apiKey: "AIzaSyBgwPiHEdcDsXsLZFRhnXkTRhjlCDABRLk",
-    authDomain: "wedding-wishes-62bc2.firebaseapp.com",
-    projectId: "wedding-wishes-62bc2",
-    storageBucket: "wedding-wishes-62bc2.firebasestorage.app",
-    messagingSenderId: "123234430250",
-    appId: "1:123234430250:web:d5ba30ae8858ce2a7e8253",
-    measurementId: "G-3L8LNT5PQL"
+    apiKey: "AIzaSyACJN9nTs9CAa9bMFsIp9qDGDF85mgJ7iw",
+    authDomain: "wedding-wishes-369f7.firebaseapp.com",
+    projectId: "wedding-wishes-369f7",
+    storageBucket: "wedding-wishes-369f7.firebasestorage.app",
+    messagingSenderId: "737208113511",
+    appId: "1:737208113511:web:30a125993d952339f937c2",
+    measurementId: "G-2R282XC1SQ"
 };
 
 // Initialize Firebase globally
@@ -216,6 +216,19 @@ document.addEventListener('DOMContentLoaded', function() {
             wishesDisplay.scrollIntoView({ behavior: 'smooth' });
         }
     });
+
+    // 防止圖片拖拽和右鍵點擊
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.nodeName.toLowerCase() === 'img') {
+            e.preventDefault();
+        }
+    });
+    
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.nodeName.toLowerCase() === 'img') {
+            e.preventDefault();
+        }
+    });
 });
 
 // Handle form submission with debug logging
@@ -227,20 +240,34 @@ document.getElementById('wishesForm').addEventListener('submit', async (e) => {
     const wishMessage = document.getElementById('wishMessage').value;
     console.log("Input values:", { guestName, wishMessage });
     
+    if (!db) {
+        console.error("Firestore not initialized");
+        alert(currentLanguage === 'en' ? 'System error. Please try again later.' : '系統錯誤，請稍後再試。');
+        return;
+    }
+    
     try {
+        console.log("Attempting to add wish to Firestore...");
         const docRef = await db.collection('wishes').add({
             name: guestName,
             message: wishMessage,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
-        console.log("Wish added with ID:", docRef.id);
+        console.log("Wish added successfully with ID:", docRef.id);
         
         document.getElementById('wishesForm').reset();
         alert(currentLanguage === 'en' ? 'Thank you for your wishes!' : '感謝您的祝福！');
         loadWishes();
     } catch (error) {
         console.error("Error adding wish:", error);
-        alert(currentLanguage === 'en' ? 'Failed to send wishes. Please try again.' : '送出失敗，請重試。');
+        console.error("Error details:", {
+            code: error.code,
+            message: error.message,
+            stack: error.stack
+        });
+        alert(currentLanguage === 'en' ? 
+            `Failed to send wishes: ${error.message}` : 
+            `送出失敗：${error.message}`);
     }
 });
 
