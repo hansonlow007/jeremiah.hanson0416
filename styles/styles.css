@@ -1052,7 +1052,7 @@ h1 {
 }
 
 .detail-item h3 {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     position: relative;
@@ -1073,7 +1073,7 @@ h1 {
 .detail-item p {
     font-family: 'Playfair Display', serif;
     color: #666;
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important;
     margin: 1rem 0;
     line-height: 1.6;
     position: relative;
