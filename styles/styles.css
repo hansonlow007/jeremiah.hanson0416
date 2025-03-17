@@ -57,7 +57,7 @@ body {
     .couple-names { font-size: 1.8rem !important; }
     .date-display { font-size: 0.9rem !important; }
     .detail-item h3 { font-size: 1.1rem !important; }
-    .detail-item p { font-size: 0.85rem !important; }
+    .detail-item p { font-size: 0.95rem !important; }
 }
 
 @media screen and (max-width: 380px) {
@@ -73,7 +73,7 @@ body {
     .couple-names { font-size: 1.6rem !important; }
     .date-display { font-size: 0.8rem !important; }
     .detail-item h3 { font-size: 1rem !important; }
-    .detail-item p { font-size: 0.8rem !important; }
+    .detail-item p { font-size: 0.9rem !important; }
 }
 
 .hero-section,
