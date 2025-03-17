@@ -17,25 +17,64 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     overflow-x: hidden;
-    font-size: 16px; /* Base font size */
-    -webkit-text-size-adjust: 100%; /* 防止 iOS 自動調整字體大小 */
-    -webkit-touch-callout: none;  /* iOS Safari */
-    -webkit-user-select: none;    /* Safari */
-    -khtml-user-select: none;     /* Konqueror HTML */
-    -moz-user-select: none;       /* Firefox */
-    -ms-user-select: none;        /* Internet Explorer/Edge */
-    user-select: none;            /* Non-prefixed version */
+    font-size: 14px;
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Basic Mobile Responsive */
 @media screen and (max-width: 1024px) {
     body {
-        font-size: 16px;
+        font-size: 14px;
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
         background-repeat: no-repeat;
     }
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    .couple-names { font-size: 2rem !important; }
+    .date-display { font-size: 1rem !important; }
+    .detail-item h3 { font-size: 1.2rem !important; }
+    .detail-item p { font-size: 0.9rem !important; }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 13px;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.4rem !important; }
+    .couple-names { font-size: 1.8rem !important; }
+    .date-display { font-size: 0.9rem !important; }
+    .detail-item h3 { font-size: 1.1rem !important; }
+    .detail-item p { font-size: 0.85rem !important; }
+}
+
+@media screen and (max-width: 380px) {
+    body {
+        font-size: 12px;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+    h1 { font-size: 1.4rem !important; }
+    h2 { font-size: 1.2rem !important; }
+    .couple-names { font-size: 1.6rem !important; }
+    .date-display { font-size: 0.8rem !important; }
+    .detail-item h3 { font-size: 1rem !important; }
+    .detail-item p { font-size: 0.8rem !important; }
+}
 
 .hero-section,
 .couple-info,
@@ -765,7 +804,7 @@ h1 {
 
 /* Hero section 的 couple-names */
 .hero-section .couple-names {
-    font-size: 2.5em;
+    font-size: 3.2em;
     margin: 20px 0;
 }
 
@@ -786,7 +825,7 @@ h1 {
 .couple-info h2 {
     font-family: 'Great Vibes', cursive;
     color: #D9766D;
-    font-size: 2.5rem;
+    font-size: 2rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
@@ -945,7 +984,7 @@ h1 {
 .wedding-details h2 {
     font-family: 'Great Vibes', cursive;
     color: #D9766D;
-    font-size: 2.5rem;
+    font-size: 2rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
@@ -1013,7 +1052,7 @@ h1 {
 }
 
 .detail-item h3 {
-    font-size: 2rem;
+    font-size: 1.3rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     position: relative;
@@ -1034,9 +1073,9 @@ h1 {
 .detail-item p {
     font-family: 'Playfair Display', serif;
     color: #666;
-    font-size: 1.1rem;
+    font-size: 1.3rem !important;
     margin: 1rem 0;
-    line-height: 1.8;
+    line-height: 1.6;
     position: relative;
     padding: 0 1rem;
     text-shadow: none !important;
@@ -1287,51 +1326,19 @@ h2 {
         padding: 0.8rem 1.5rem;
     }
 
-    .detail-item {
-        padding: 1.2rem;
-        margin-bottom: 1rem;
-        position: relative;
-        transition: transform 0.3s ease;
-        border: none;
-        border-radius: 15px;
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
-        background-size: 200% 200%;
-        animation: gradientBG 6s ease infinite;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .detail-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
-        background-size: 200% 200%;
-    }
-
-    .detail-item h3 {
-        margin-bottom: 0.8rem;
-        font-size: 1.4rem !important;
-        text-align: center;
-    }
-
-    .detail-item p {
-        margin: 0.5rem 0;
-        font-size: 1rem !important;
-        line-height: 1.6;
-        text-align: center;
-    }
-
-    .our-story {
-        padding: 3rem 1rem;
-    }
-
     .pink-nav {
         padding: 0.4rem 1rem;
     }
 
     .nav-logo {
         height: 100px;
+    }
+
+    .couple-info .couple-names {
+        display: inline-block !important;
+        white-space: nowrap !important;
+        font-size: 2.5rem !important;
+        margin: 1rem 0.3rem;
     }
 }
 
@@ -1473,7 +1480,7 @@ h2 {
 .dress-code h2 {
     font-family: 'Great Vibes', cursive;
     color: #D9766D;
-    font-size: 2.5rem;
+    font-size: 2rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
@@ -1681,7 +1688,7 @@ h1,
 .dress-code-text {
     font-family: 'Playfair Display', serif;
     color: #666;
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
     text-align: center;
     margin: 1.5rem 0;
     line-height: 1.8;
@@ -1920,7 +1927,7 @@ h1,
 .wedding-details h2,
 .dress-code h2 {
     font-family: 'Great Vibes', cursive;
-    font-size: 2.5rem;
+    font-size: 2rem !important;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
@@ -1950,7 +1957,7 @@ h1,
     .our-story h2,
     .wedding-details h2,
     .dress-code h2 {
-        font-size: 3.2rem !important;
+        font-size: 1.8rem !important;
         margin-bottom: 2rem;
     }
 }
@@ -1960,7 +1967,7 @@ h1,
     .our-story h2,
     .wedding-details h2,
     .dress-code h2 {
-        font-size: 2.5rem !important;
+        font-size: 1.6rem !important;
         margin-bottom: 1.5rem;
     }
 }
@@ -1968,7 +1975,7 @@ h1,
 /* 確保這些樣式不會被其他地方覆蓋 */
 .couple-info .couple-names {
     font-family: 'Dancing Script', cursive !important;
-    font-size: 3.5rem !important;
+    font-size: 3rem !important;
     text-align: center !important;
     letter-spacing: 2px !important;
     margin-top: 3rem !important;
@@ -1976,17 +1983,26 @@ h1,
     display: inline-block !important;
     color: #B76E79 !important;
     white-space: nowrap !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 @media (max-width: 768px) {
+    .hero-section .couple-names {
+        font-size: 2.8em;
+    }
+    
     .couple-info .couple-names {
-        font-size: 2.8rem !important;
+        font-size: 2.5rem !important;
         margin: 0 0.5rem !important;
         margin-top: 2rem !important;
     }
 }
 
 @media (max-width: 380px) {
+    .hero-section .couple-names {
+        font-size: 2.4em;
+    }
+    
     .couple-info .couple-names {
         font-size: 2.2rem !important;
         margin: 0 0.3rem !important;
@@ -2019,14 +2035,18 @@ h1,
 
 .couple-social-link:hover {
     transform: translateY(-2px);
+    background-color: #6B5B9E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .couple-social-link i {
     font-size: 1.4rem;
+    color: white;
 }
 
 .couple-social-link span {
     font-family: 'Playfair Display', serif;
+    color: white;
 }
 
 /* 響應式設計 */
@@ -2477,24 +2497,24 @@ h1,
 
 .wish-item .guest-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem !important;
-    font-weight: bold !important;  /* 添加粗體 */
+    font-size: 1.4rem !important;  /* 增加名字字體大小 */
+    font-weight: bold !important;
     color: #D9766D;
     margin: 0;
     text-align: left;
 }
 
 .wish-item .message {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;  /* 增加留言內容字體大小 */
     line-height: 1.6;
     color: #555;
     margin: 0;
     padding-top: 0.8rem;
-    text-align: left;  /* 改為左對齊 */
+    text-align: left;
 }
 
 .wish-item .timestamp {
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;  /* 稍微增加時間戳字體大小 */
     color: #999;
     font-family: 'Playfair Display', serif;
 }
@@ -2507,12 +2527,11 @@ h1,
     }
 
     .wish-item .guest-name {
-        font-size: 1.2rem !important;
-        font-weight: bold !important;
+        font-size: 1.3rem !important;  /* 手機版名字字體大小 */
     }
 
     .wish-item .message {
-        font-size: 1rem !important;
+        font-size: 1rem !important;  /* 手機版留言內容字體大小 */
     }
 }
 
@@ -2522,12 +2541,11 @@ h1,
     }
 
     .wish-item .guest-name {
-        font-size: 1.1rem !important;
-        font-weight: bold !important;
+        font-size: 1.2rem !important;  /* 更小螢幕名字字體大小 */
     }
 
     .wish-item .message {
-        font-size: 0.9rem !important;
+        font-size: 0.95rem !important;  /* 更小螢幕留言內容字體大小 */
     }
 }
 
@@ -3247,6 +3265,431 @@ h2::after,
     .form-group input {
         width: 90vw !important;
         max-width: 300px !important;
+    }
+}
+
+.itinerary {
+    position: relative;
+    padding: 2rem 1rem;
+    height: auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.itinerary h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #D9766D;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+    text-shadow: none !important;
+}
+
+.itinerary h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: #D9766D;
+    opacity: 0.5;
+}
+
+.itinerary-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.itinerary-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    position: relative;
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
+    background-size: 200% 200%;
+    animation: gradientBG 6s ease infinite;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.itinerary-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
+    background-size: 200% 200%;
+}
+
+.itinerary-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(214, 206, 230, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.itinerary-item:hover::before {
+    transform: translateX(100%);
+}
+
+.itinerary-item .time {
+    min-width: 120px;
+    font-weight: bold;
+    color: #D9766D;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.itinerary-item .event {
+    flex: 1;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+}
+
+@media (max-width: 768px) {
+    .itinerary-content {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .itinerary-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1.5rem;
+    }
+
+    .itinerary-item .time {
+        min-width: auto;
+        font-size: 1.1rem;
+    }
+
+    .itinerary-item .event {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .itinerary-content {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .itinerary-item {
+        padding: 1rem;
+    }
+
+    .itinerary-item .time {
+        font-size: 1rem;
+    }
+
+    .itinerary-item .event {
+        font-size: 0.9rem;
+    }
+}
+
+/* Couple Profiles Styles */
+.couple-profiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    padding: 2rem;
+}
+
+.profile-card {
+    position: relative;
+    width: 280px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    z-index: 2;
+}
+
+.profile-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #B76E79;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    background: #8A75BF;
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    background: #6B5B9E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.social-link i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* 手機版樣式 */
+@media (max-width: 768px) {
+    .couple-profiles {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0.5rem;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+
+    .profile-card {
+        width: 45%;
+        max-width: none;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        border-width: 2px;
+    }
+
+    .profile-info {
+        padding: 0.3rem;
+        margin-top: 0.3rem;
+    }
+
+    .profile-name {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .social-link {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .couple-profiles {
+        gap: 0.8rem;
+        padding: 0.3rem;
+        margin: 1rem 0;
+    }
+
+    .profile-card {
+        width: 48%;
+        padding: 0.3rem;
+    }
+
+    .profile-name {
+        font-size: 1.2rem;
+    }
+
+    .social-link {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+/* 更新 Couple Social Section 樣式 */
+.couple-social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(214, 206, 230, 0.4));
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.couple-social-section p {
+    font-family: 'Playfair Display', serif;
+    color: #D9766D;  /* Changed to rose gold */
+    font-size: 1.3rem !important;  /* Match wedding details content size */
+    margin-bottom: 0.5rem;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    background: none;  /* Removed background */
+    border: none;      /* Removed border */
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.couple-logo {
+    width: 130px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.couple-logo:hover {
+    transform: scale(1.05);
+}
+
+/* 統一 Instagram 按鈕樣式 */
+.ig-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: #8A75BF;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ig-button:hover {
+    background: #6B5B9E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ig-button i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .ig-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .ig-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .couple-social-section {
+        margin-top: 1.5rem;
+        padding: 1.2rem;
+        gap: 1.2rem;
+    }
+    
+    .couple-social-section p {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .social-container {
+        gap: 2rem;
+    }
+    
+    .couple-logo {
+        width: 110px;
+    }
+    
+    .ig-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .couple-social-section {
+        margin-top: 1rem;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .couple-social-section p {
+        font-size: 0.95rem !important;  /* Match smaller mobile wedding details content size */
+        padding: 0.5rem 1rem;
+    }
+    
+    .social-container {
+        gap: 1.5rem;
+    }
+    
+    .couple-logo {
+        width: 90px;
+    }
+    
+    .ig-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
     }
 }
 
