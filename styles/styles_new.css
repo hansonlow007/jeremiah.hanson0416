@@ -1,0 +1,413 @@
+/* 重置語言切換按鈕的所有效果 */
+.nav-buttons .pink-btn.lang-btn,
+.nav-buttons .pink-btn.lang-btn:hover,
+.nav-buttons .pink-btn.lang-btn:active,
+.nav-buttons .pink-btn.lang-btn:focus {
+    background-color: #9B89C9 !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: none !important;
+    font-size: 0.9rem !important;
+    min-height: 32px !important;
+    min-width: 90px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    transform: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 移除所有偽元素 */
+.nav-buttons .pink-btn.lang-btn::after,
+.nav-buttons .pink-btn.lang-btn::before,
+.nav-buttons .pink-btn.lang-btn:hover::after,
+.nav-buttons .pink-btn.lang-btn:hover::before,
+.nav-buttons .pink-btn.lang-btn:active::after,
+.nav-buttons .pink-btn.lang-btn:active::before,
+.nav-buttons .pink-btn.lang-btn:focus::after,
+.nav-buttons .pink-btn.lang-btn:focus::before {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: static !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 新的合照樣式 */
+.couple-photo {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 0 !important;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.couple-photo img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.couple-photo img:hover {
+    transform: scale(1.02);
+}
+
+.couple-names {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.couple-names h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #D9766D;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0px 1px 2px rgba(217, 118, 109, 0.2);
+}
+
+.couple-names h3 span {
+    font-weight: 700;
+}
+
+/* 使社交媒體連結居中 */
+.social-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+/* 聖經經文樣式 */
+.bible-verse {
+    max-width: 85%;
+    margin: 1.5rem auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.verse-reference {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #D9766D;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.verse-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+/* 為中文版本經文添加略微不同的樣式 */
+.verse-text .zh {
+    line-height: 1.8;
+}
+
+/* 調整輪播圖位置避免被導航欄遮擋 */
+.slideshow-section {
+    padding-top: 120px !important;
+    margin-top: 0 !important;
+    height: 100vh !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.slideshow-container {
+    height: calc(100vh - 140px) !important;
+    max-height: 900px !important;
+}
+
+.slide {
+    height: 100% !important;
+}
+
+.slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+}
+
+/* 修改"We're Getting Married!"部分，使其與Dress Code保持一致 */
+.couple-info-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
+    background-size: 200% 200%;
+    animation: gradientBG 6s ease infinite;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.couple-info-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
+    background-size: 200% 200%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 調整照片在新容器中的樣式 */
+.couple-info-content .couple-photo {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 700px;
+    transition: all 0.3s ease-in-out;
+}
+
+.couple-info-content .couple-photo img {
+    width: 100%;
+    height: auto;
+}
+
+/* 調整聖經經文在新容器中的樣式 */
+.couple-info-content .bible-verse {
+    max-width: 90%;
+    margin: 1rem auto 2rem;
+}
+
+/* 調整社交媒體連結在新容器中的樣式 */
+.couple-info-content .social-container {
+    margin: 1rem 0 0.5rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+    .slide img {
+        object-position: center 15% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .couple-photo {
+        max-width: 90%;
+    }
+    
+    .couple-names h3 {
+        font-size: 2rem;
+    }
+    
+    .bible-verse {
+        max-width: 90%;
+    }
+    
+    .verse-reference {
+        font-size: 1.2rem;
+    }
+    
+    .verse-text {
+        font-size: 0.9rem;
+    }
+    
+    .slideshow-section {
+        padding-top: 100px !important;
+        height: 100vh !important;
+    }
+    
+    .slideshow-container {
+        height: calc(100vh - 120px) !important;
+    }
+    
+    .slide img {
+        object-position: center 10% !important;
+    }
+    
+    .couple-info-content {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    
+    .couple-info-content .couple-photo {
+        margin-bottom: 1.5rem;
+        max-width: 90%;
+    }
+    
+    .couple-info-content .bible-verse {
+        margin: 0.8rem auto 1.5rem;
+    }
+    
+    .wish-item .guest-name {
+        font-size: 1.4rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    section.couple-info {
+        padding: 1rem 0 !important;
+    }
+    
+    .couple-info h2 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .couple-info-content {
+        padding: 0 !important;
+        margin: 0 auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+    
+    /* 手機上大幅放大照片的特殊樣式 */
+    .couple-info-content .couple-photo {
+        width: 120% !important;
+        max-width: 120% !important;
+        margin: 0 -10% 0.8rem -10% !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .couple-photo img {
+        width: 100% !important;
+    }
+    
+    /* 縮小其他元素以凸顯照片 */
+    .couple-names h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .couple-info-content .bible-verse {
+        margin: 0.3rem auto 0.5rem !important;
+        max-width: 95% !important;
+    }
+    
+    .verse-reference {
+        font-size: 1rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .verse-text {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+        padding: 0 !important;
+    }
+    
+    .slideshow-section {
+        padding-top: 90px !important;
+        height: 90vh !important;
+    }
+    
+    .slideshow-container {
+        height: calc(90vh - 100px) !important;
+    }
+    
+    .slide img {
+        object-position: center 5% !important;
+    }
+    
+    .wish-item .guest-name {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* 超小螢幕的加強優化 */
+@media (max-width: 375px) {
+    .couple-info-content .couple-photo {
+        width: 130% !important;
+        max-width: 130% !important;
+        margin: 0 -15% 0.5rem -15% !important;
+    }
+    
+    .couple-names h3 {
+        font-size: 1.6rem !important;
+    }
+    
+    .verse-reference {
+        font-size: 0.9rem !important;
+    }
+    
+    .verse-text {
+        font-size: 0.75rem !important;
+    }
+    
+    .social-container {
+        transform: scale(0.85) !important;
+        margin: 0.3rem 0 !important;
+    }
+    
+    .wish-item .guest-name {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* 添加到HTML中的類，可以直接在HTML中添加 */
+.full-width-mobile {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 超大照片特殊類 */
+.super-large-mobile {
+    transform: none !important;
+}
+
+@media (max-width: 480px) {
+    .super-large-mobile {
+        width: 140% !important;
+        max-width: 140% !important;
+        margin-left: -20% !important;
+        margin-right: -20% !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .super-large-mobile {
+        width: 150% !important;
+        max-width: 150% !important;
+        margin-left: -25% !important;
+        margin-right: -25% !important;
+    }
+}
+
+/* 修改留言者名字的字體，與新人名字保持一致 */
+.wish-item .guest-name {
+    font-family: 'Dancing Script', cursive !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #D9766D !important;
+    text-shadow: 0px 1px 2px rgba(217, 118, 109, 0.2) !important;
+} 
