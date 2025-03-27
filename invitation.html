@@ -6,6 +6,7 @@
 <title>Jeremiah & Hanson Wedding Invitation</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+<link rel="stylesheet" type="text/css" href="./styles/modal.css">
 </head>
 
 <body>
@@ -72,12 +73,6 @@
                     </div>
                     <div class="profile-info">
                         <h3 class="profile-name">Jeremiah</h3>
-                        <div class="profile-social">
-                            <a href="https://www.instagram.com/jeremiahliew.ig/" target="_blank" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                                <span>@jeremiahliew.ig</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="profile-card fade-in">
@@ -86,27 +81,15 @@
                     </div>
                     <div class="profile-info">
                         <h3 class="profile-name">Hanson</h3>
-                        <div class="profile-social">
-                            <a href="https://www.instagram.com/hansonlow.ig/" target="_blank" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                                <span>@hansonlow.ig</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="couple-social-section fade-in">
-                <p>
-                    <span class="en">Follow our wedding Instagram account</span>
-                    <span class="zh">追蹤我們的婚禮 Instagram</span>
-                </p>
-                <div class="social-container">
-                    <img src="images/wedding logo.png" alt="Wedding Logo" class="couple-logo">
-                    <a href="https://www.instagram.com/jh0426.ig/" class="ig-button" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        <span>@jh0426.ig</span>
-                    </a>
-                </div>
+            <div class="social-container fade-in">
+                <a href="https://www.instagram.com/jh0426.ig/" class="ig-button" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Follow Our Wedding Journey</span>
+                    <span class="ig-handle">@jh0426.ig</span>
+                </a>
             </div>
         </section>
 
@@ -120,27 +103,37 @@
                 <span class="en">Photo Gallery</span>
                 <span class="zh">婚紗相簿</span>
             </h2>
+            <p class="gallery-hint fade-in" style="font-size: 0.8rem; font-style: italic; color: #666; text-align: center; margin: 0.5rem 0 1.5rem;">
+                <span class="en">Click on the image to view it in full size.</span>
+                <span class="zh">點擊圖片以查看完整尺寸</span>
+            </p>
             <div class="story-grid fade-in">
-                <div class="story-item fade-in" style="--item-index: 1">
+                <div class="story-item fade-in" style="--item-index: 1" onclick="openModal(this)">
                     <img src="images/gallery1.jpg" alt="照片1">
                 </div>
-                <div class="story-item fade-in" style="--item-index: 2">
+                <div class="story-item fade-in" style="--item-index: 2" onclick="openModal(this)">
                     <img src="images/gallery2.jpg" alt="照片2">
                 </div>
-                <div class="story-item fade-in" style="--item-index: 3">
+                <div class="story-item fade-in" style="--item-index: 3" onclick="openModal(this)">
                     <img src="images/gallery3.jpg" alt="照片3">
                 </div>
-                <div class="story-item fade-in" style="--item-index: 4">
+                <div class="story-item fade-in" style="--item-index: 4" onclick="openModal(this)">
                     <img src="images/gallery4.jpg" alt="照片4">
                 </div>
-                <div class="story-item fade-in" style="--item-index: 5">
+                <div class="story-item fade-in" style="--item-index: 5" onclick="openModal(this)">
                     <img src="images/gallery5.jpg" alt="照片5">
                 </div>
-                <div class="story-item fade-in" style="--item-index: 6">
+                <div class="story-item fade-in" style="--item-index: 6" onclick="openModal(this)">
                     <img src="images/gallery6.jpg" alt="照片6">
                 </div>
             </div>
         </section>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
 
         <section class="wedding-details">
             <div class="section-divider fade-in">

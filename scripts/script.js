@@ -217,6 +217,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // 初始化模態框
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-modal');
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // 點擊模態框外部時關閉
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
     // 防止圖片拖拽和右鍵點擊
     document.addEventListener('dragstart', function(e) {
         if (e.target.nodeName.toLowerCase() === 'img') {
@@ -227,6 +245,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('contextmenu', function(e) {
         if (e.target.nodeName.toLowerCase() === 'img') {
             e.preventDefault();
+        }
+    });
+
+    // 按ESC鍵關閉模態框
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
         }
     });
 });
@@ -329,4 +354,21 @@ function escapeHtml(unsafe) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+// 模態框功能
+function openModal(element) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const img = element.querySelector('img');
+    
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+    document.body.style.overflow = 'hidden'; // 防止背景滾動
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // 恢復背景滾動
 } 
