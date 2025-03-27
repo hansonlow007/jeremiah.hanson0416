@@ -303,7 +303,7 @@
     
     .wishes-form label .zh,
     .wish-item .wish-text .zh {
-        font-size: 0.8rem !important;
+        font-size: 0.95rem !important;
     }
     
     /* 統一設定所有照片的樣式 */
@@ -461,23 +461,23 @@
 .wishes-form textarea,
 .wishes-form label,
 .wishes-form button {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
 }
 
 .wishes-form label .zh {
-    font-size: 0.85rem !important;
+    font-size: 1.1rem !important;
 }
 
 .wishes-list {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
 }
 
 .wish-item .wish-text {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
 }
 
 .wish-item .wish-text .zh {
-    font-size: 0.85rem !important;
+    font-size: 1.05rem !important;
 }
 
 /* 在我們結婚啦裡面的字體放大 */
@@ -533,7 +533,7 @@
     
     .wishes-form label .zh,
     .wish-item .wish-text .zh {
-        font-size: 0.8rem !important;
+        font-size: 0.95rem !important;
     }
     
     /* 統一設定所有照片的樣式 */
