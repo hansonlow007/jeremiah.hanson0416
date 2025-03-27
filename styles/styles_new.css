@@ -340,7 +340,7 @@
     }
     
     /* 覆蓋超大照片類別的設定 */
-    .super-large-mobile {
+    .full-width-mobile {
         width: 100% !important;
         max-width: 100% !important;
         margin-left: 0 !important;
@@ -386,31 +386,6 @@
     margin-right: 0 !important;
 }
 
-/* 超大照片特殊類 */
-.super-large-mobile {
-    transform: none !important;
-}
-
-@media (max-width: 480px) {
-    .super-large-mobile {
-        width: 140% !important;
-        max-width: 140% !important;
-        margin-left: -20% !important;
-        margin-right: -20% !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-    }
-}
-
-@media (max-width: 375px) {
-    .super-large-mobile {
-        width: 150% !important;
-        max-width: 150% !important;
-        margin-left: -25% !important;
-        margin-right: -25% !important;
-    }
-}
-
 /* 修改留言者名字的字體，與新人名字保持一致 */
 .wish-item .guest-name {
     font-family: 'Dancing Script', cursive !important;
@@ -438,25 +413,31 @@
 
 /* 在手機上確保所有照片的樣式一致 */
 @media (max-width: 480px) {
-    .couple-photo {
+    /* 統一設定所有照片的樣式 */
+    .couple-photo, 
+    .story-item {
         width: 100% !important;
         max-width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         border-radius: 0 !important;
+        box-shadow: none !important;
     }
     
-    .couple-photo img {
+    .couple-photo img, 
+    .story-item img {
         width: 100% !important;
         height: auto !important;
         border-radius: 0 !important;
+        object-fit: cover !important;
     }
     
-    /* 覆蓋超大照片類別的設定 */
-    .super-large-mobile {
+    /* 統一設定照片容器 */
+    .couple-info-content .couple-photo {
         width: 100% !important;
         max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 0 0.8rem 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
     }
 } 
