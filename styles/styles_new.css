@@ -11,6 +11,7 @@
     cursor: pointer !important;
     transition: none !important;
     font-size: 0.9rem !important;
+    font-weight: 700 !important;
     min-height: 32px !important;
     min-width: 90px !important;
     display: flex !important;
@@ -278,6 +279,61 @@
 }
 
 @media (max-width: 480px) {
+    /* 手機版維持適當的字體大小 */
+    .couple-info .bible-verse .verse-text {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .couple-info .bible-verse .verse-reference {
+        font-size: 1.2rem !important;
+    }
+    
+    .couple-info .couple-names h3 {
+        font-size: 2rem !important;
+    }
+    
+    .header-photo {
+        border-radius: 8px !important;
+    }
+    
+    .photo-container {
+        padding: 0 10px;
+    }
+    
+    .wishes-form label .zh,
+    .wish-item .wish-text .zh {
+        font-size: 0.8rem !important;
+    }
+    
+    /* 統一設定所有照片的樣式 */
+    .couple-photo, 
+    .story-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .couple-photo img, 
+    .story-item img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        object-fit: cover !important;
+    }
+    
+    /* 統一設定照片容器 */
+    .couple-info-content .couple-photo {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 0.8rem 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    
     section.couple-info {
         padding: 1rem 0 !important;
     }
@@ -297,19 +353,6 @@
         overflow: visible !important;
     }
     
-    /* 手機上大幅放大照片的特殊樣式 */
-    .couple-info-content .couple-photo {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 0 0.8rem 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-    }
-    
-    .couple-photo img {
-        width: 100% !important;
-    }
-    
     /* 縮小其他元素以凸顯照片 */
     .couple-names h3 {
         font-size: 1.8rem !important;
@@ -319,17 +362,6 @@
     .couple-info-content .bible-verse {
         margin: 0.3rem auto 0.5rem !important;
         max-width: 95% !important;
-    }
-    
-    .verse-reference {
-        font-size: 1rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-    
-    .verse-text {
-        font-size: 0.8rem !important;
-        line-height: 1.3 !important;
-        padding: 0 !important;
     }
     
     .slideshow-section {
@@ -349,23 +381,12 @@
         font-size: 1.3rem !important;
     }
     
-    /* 覆蓋超大照片類別的設定 */
+    /* 覆蓋特殊照片類別的設定 */
     .full-width-mobile {
         width: 100% !important;
         max-width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
-    }
-    
-    .photo-container {
-        max-width: 95%;
-        margin: 0.5rem auto 1rem;
-        padding: 0;
-    }
-    
-    .header-photo {
-        border-radius: 4px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
 }
 
@@ -421,7 +442,7 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     display: block;
 }
@@ -443,6 +464,10 @@
     font-size: 0.9rem !important;
 }
 
+.wishes-form label .zh {
+    font-size: 0.85rem !important;
+}
+
 .wishes-list {
     font-size: 0.9rem !important;
 }
@@ -451,8 +476,66 @@
     font-size: 0.9rem !important;
 }
 
-/* 在手機上確保所有照片的樣式一致 */
+.wish-item .wish-text .zh {
+    font-size: 0.85rem !important;
+}
+
+/* 在我們結婚啦裡面的字體放大 */
+.couple-info .bible-verse .verse-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.couple-info .bible-verse .verse-reference {
+    font-size: 1.6rem;
+}
+
+.couple-info .couple-names h3 {
+    font-size: 2.8rem;
+}
+
+@media (max-width: 768px) {
+    .couple-info .bible-verse .verse-text {
+        font-size: 1rem;
+    }
+    
+    .couple-info .bible-verse .verse-reference {
+        font-size: 1.4rem;
+    }
+    
+    .couple-info .couple-names h3 {
+        font-size: 2.4rem;
+    }
+    
+    .header-photo {
+        border-radius: 10px;
+    }
+}
+
 @media (max-width: 480px) {
+    /* 手機版維持適當的字體大小 */
+    .couple-info .bible-verse .verse-text {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .couple-info .bible-verse .verse-reference {
+        font-size: 1.2rem !important;
+    }
+    
+    .couple-info .couple-names h3 {
+        font-size: 2rem !important;
+    }
+    
+    .header-photo {
+        border-radius: 8px !important;
+    }
+    
+    .wishes-form label .zh,
+    .wish-item .wish-text .zh {
+        font-size: 0.8rem !important;
+    }
+    
     /* 統一設定所有照片的樣式 */
     .couple-photo, 
     .story-item {
@@ -479,5 +562,9 @@
         margin: 0 0 0.8rem 0 !important;
         border-radius: 0 !important;
         box-shadow: none !important;
+    }
+    
+    .photo-container {
+        padding: 0 10px;
     }
 } 
