@@ -588,6 +588,7 @@
     position: relative;
     background-color: #000;
     margin-top: 60px;
+    margin-bottom: 6rem;
 }
 
 .video-container {
@@ -620,7 +621,8 @@
 /* 調整手機版視頻大小和位置 */
 @media (max-width: 768px) {
     .video-section {
-        margin-top: 80px; /* 增加上邊距 */
+        margin-top: 80px;
+        margin-bottom: 5rem;
         height: 80vh;
     }
 
@@ -636,8 +638,26 @@
 
 @media (max-width: 480px) {
     .video-section {
-        margin-top: 70px; /* 在更小的屏幕上使用稍小的上邊距 */
+        margin-top: 70px;
+        margin-bottom: 4rem;
         height: 70vh;
+    }
+}
+
+/* 調整 We're Getting Married 部分的間距 */
+.couple-info {
+    padding: 3rem 0;
+}
+
+@media (max-width: 768px) {
+    .couple-info {
+        padding: 2.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .couple-info {
+        padding: 2rem 0;
     }
 }
 
