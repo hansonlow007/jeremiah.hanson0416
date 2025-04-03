@@ -254,6 +254,11 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+
+    // 倒數計時功能
+    updateCountdown();
+    // 每天更新一次倒數計時
+    setInterval(updateCountdown, 24 * 60 * 60 * 1000);
 });
 
 // Handle form submission with debug logging
@@ -371,4 +376,17 @@ function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto'; // 恢復背景滾動
+}
+
+// 倒數計時功能
+function updateCountdown() {
+    const weddingDate = new Date('2025-04-26T00:00:00');
+    const now = new Date();
+    const diffTime = weddingDate - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    const countdownElement = document.getElementById('countdown');
+    if (countdownElement) {
+        countdownElement.textContent = diffDays;
+    }
 } 

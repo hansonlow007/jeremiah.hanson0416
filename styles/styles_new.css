@@ -723,4 +723,100 @@
         min-height: 32px !important;
         min-width: 90px !important;
     }
+}
+
+/* 統一 section 間距 */
+section {
+    margin: 4rem 0;
+}
+
+.dress-code {
+    margin: 4rem 0;
+}
+
+/* 愛情故事樣式 */
+.love-story {
+    max-width: 85%;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.story-text {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    font-style: normal;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+/* 求婚日期樣式 */
+.proposal-date {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.date-text {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.4rem;
+    color: #D9766D;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* 倒數計時樣式 */
+.countdown {
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.countdown-text {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-number {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 2.5rem;
+    color: #D9766D;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .story-text {
+        font-size: 1rem;
+    }
+    
+    .date-text {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-text {
+        font-size: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-text {
+        font-size: 0.9rem;
+    }
+    
+    .date-text {
+        font-size: 1.1rem;
+    }
+    
+    .countdown-text {
+        font-size: 0.9rem;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
 } 
