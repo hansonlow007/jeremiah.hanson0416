@@ -639,4 +639,68 @@
         margin-top: 70px; /* 在更小的屏幕上使用稍小的上邊距 */
         height: 70vh;
     }
+}
+
+/* 統一按鈕樣式 */
+.pink-btn {
+    background-color: #9b89c9ac !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: none !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    min-height: 32px !important;
+    min-width: 90px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    transform: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif !important;
+}
+
+/* 移除所有按鈕的偽元素效果 */
+.pink-btn::after,
+.pink-btn::before,
+.pink-btn:hover::after,
+.pink-btn:hover::before,
+.pink-btn:active::after,
+.pink-btn:active::before,
+.pink-btn:focus::after,
+.pink-btn:focus::before {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: static !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 調整手機版表單字體大小 */
+@media (max-width: 480px) {
+    .wishes-form input,
+    .wishes-form textarea,
+    .wishes-form label {
+        font-size: 0.9rem !important;
+    }
+
+    .wishes-form label .zh {
+        font-size: 0.9rem !important;
+    }
+
+    .wishes-form button {
+        font-size: 0.9rem !important;
+        min-height: 32px !important;
+        min-width: 90px !important;
+    }
 } 
