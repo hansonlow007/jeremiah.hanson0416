@@ -30,6 +30,37 @@
     .wishes-section {
         margin: 5rem 0;
     }
+
+    @keyframes roseGoldGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .couple-names h3 {
+        background: linear-gradient(45deg, #B76E79, #9b89c9, #E6B8B7, #B76E79);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: roseGoldGradient 6s ease infinite;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        .couple-names h3 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #B76E79, #9b89c9, #E6B8B7, #B76E79);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: roseGoldGradient 6s ease infinite;
+        }
+    }
 </style>
 </head>
 
