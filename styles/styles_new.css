@@ -79,7 +79,7 @@
 }
 
 .couple-names h3 {
-    font-family: 'Dancing Script', cursive, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif !important;
+    font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     color: #D9766D;
     margin: 0;
@@ -91,6 +91,12 @@
     font-weight: 700;
 }
 
+@keyframes roseGoldGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* 使社交媒體連結居中 */
 .social-container {
     display: flex;
@@ -98,36 +104,139 @@
     margin: 1rem 0;
 }
 
-/* 聖經經文樣式 */
+/* 經文樣式 */
 .bible-verse {
     max-width: 85%;
-    margin: 1.5rem auto;
-    text-align: center;
-    padding: 0 1rem;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.bible-verse::before,
+.bible-verse::after {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #D9766D;
+    opacity: 0.3;
+    position: absolute;
+}
+
+.bible-verse::before {
+    top: -1rem;
+    left: 1rem;
+}
+
+.bible-verse::after {
+    bottom: -2rem;
+    right: 1rem;
+}
+
+.bible-verse:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .verse-reference {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
-    color: #D9766D;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #B76E79, #E6B8B7, #B76E79);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: roseGoldGradient 6s ease infinite;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.verse-reference::before,
+.verse-reference::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D9766D, transparent);
+    top: 50%;
+}
+
+.verse-reference::before {
+    left: 0;
+}
+
+.verse-reference::after {
+    right: 0;
 }
 
 .verse-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #666;
-    font-style: italic;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-align: center;
     margin: 0;
     padding: 0 1rem;
+    font-style: italic;
+    background: linear-gradient(45deg, #B76E79, #E6B8B7, #B76E79);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: roseGoldGradient 6s ease infinite;
+    position: relative;
 }
 
-/* 為中文版本經文添加略微不同的樣式 */
-.verse-text .zh {
-    line-height: 1.8;
-    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif !important;
+.verse-text::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D9766D, transparent);
+}
+
+@media (max-width: 768px) {
+    .bible-verse {
+        padding: 2rem;
+    }
+    
+    .bible-verse::before,
+    .bible-verse::after {
+        font-size: 3rem;
+    }
+    
+    .verse-reference::before,
+    .verse-reference::after {
+        width: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bible-verse {
+        padding: 1.5rem;
+    }
+    
+    .bible-verse::before,
+    .bible-verse::after {
+        font-size: 2.5rem;
+    }
+    
+    .verse-reference::before,
+    .verse-reference::after {
+        width: 20%;
+    }
 }
 
 /* 調整輪播圖位置避免被導航欄遮擋 */
@@ -166,20 +275,17 @@
     flex-direction: column;
     align-items: center;
     border-radius: 15px;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(214, 206, 230, 0.3), rgba(217, 118, 109, 0.2));
-    background-size: 200% 200%;
-    animation: gradientBG 6s ease infinite;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: none;
+    box-shadow: none;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 .couple-info-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(138, 117, 191, 0.2);
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(214, 206, 230, 0.4), rgba(217, 118, 109, 0.3));
-    background-size: 200% 200%;
+    transform: none;
+    box-shadow: none;
+    background: none;
 }
 
 @keyframes gradientBG {
@@ -230,15 +336,21 @@
     }
     
     .bible-verse {
-        max-width: 90%;
+        padding: 1.5rem;
     }
     
     .verse-reference {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .verse-text {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .bible-verse::before,
+    .bible-verse::after {
+        font-size: 3rem;
     }
     
     .slideshow-section {
@@ -393,6 +505,24 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+    
+    .bible-verse {
+        padding: 1.2rem;
+    }
+    
+    .verse-reference {
+        font-size: 1rem;
+    }
+    
+    .verse-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .bible-verse::before,
+    .bible-verse::after {
+        font-size: 2.5rem;
+    }
 }
 
 /* 超小螢幕的加強優化 */
@@ -436,11 +566,35 @@
 /* 標題下方的照片容器 */
 .photo-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0.5rem auto 1.5rem;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.photo-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(217, 118, 109, 0.3);
+    border-radius: 15px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.photo-container:hover {
+    transform: translateY(-5px);
+}
+
+.photo-container:hover::before {
+    border-color: rgba(217, 118, 109, 0.6);
+    transform: scale(1.02);
 }
 
 .header-photo {
@@ -450,6 +604,11 @@
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     display: block;
+    transition: all 0.3s ease;
+}
+
+.header-photo:hover {
+    box-shadow: 0 5px 15px rgba(217, 118, 109, 0.2);
 }
 
 /* 修改留言者名字的字體，與新人名字保持一致 */
@@ -461,18 +620,24 @@
     text-shadow: 0px 1px 2px rgba(217, 118, 109, 0.2) !important;
 }
 
-/* 減小留言表單和顯示的字體大小 */
+/* 修改留言表單和顯示的字體大小 */
 .wishes-form input,
 .wishes-form textarea,
 .wishes-form label,
 .wishes-form button {
     font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-size: 0.9rem !important;
 }
 
 .wishes-form label .zh {
     font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-size: 0.9rem !important;
+}
+
+.wishes-form button {
+    font-size: 0.9rem !important;
+    min-height: 32px !important;
+    min-width: 90px !important;
 }
 
 .wishes-list {
@@ -742,7 +907,7 @@ section {
 }
 
 .story-text {
-    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.1rem;
     line-height: 1.6;
     color: #666;
@@ -758,65 +923,478 @@ section {
 }
 
 .date-text {
-    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.4rem;
     color: #D9766D;
     margin: 0;
     font-weight: 500;
 }
 
-/* 倒數計時樣式 */
-.countdown {
-    margin: 1.5rem auto;
+/* 婚禮當天時間表樣式 */
+.wedding-schedule {
+    margin-top: 2rem;
     text-align: center;
 }
 
-.countdown-text {
-    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+.schedule-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.schedule-time {
+    font-weight: bold;
+    color: #D9766D;
+    font-size: 1.2rem;
+}
+
+.schedule-event {
+    margin-top: 0.5rem;
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 0.5rem;
 }
 
-.countdown-number {
-    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-    font-size: 2.5rem;
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 音樂播放器樣式 */
+.music-player {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.music-player h3 {
+    text-align: center;
     color: #D9766D;
-    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
 }
 
+.playlist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.playlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.playlist-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(217, 118, 109, 0.2);
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+.song-artist {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: #D9766D;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    color: #B76E79;
+}
+
+.play-btn.playing {
+    color: #B76E79;
+}
+
+.play-btn.playing i {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 社交媒體按鈕 */
+.ig-button {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+.ig-handle {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+/* 手機版音樂播放器樣式 */
 @media (max-width: 768px) {
-    .story-text {
+    .music-player {
+        max-width: 90%;
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .music-player h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .playlist-item {
+        padding: 0.8rem;
+    }
+
+    .song-title {
         font-size: 1rem;
     }
-    
-    .date-text {
-        font-size: 1.2rem;
+
+    .song-artist {
+        font-size: 0.8rem;
     }
-    
-    .countdown-text {
-        font-size: 1rem;
-    }
-    
-    .countdown-number {
-        font-size: 2rem;
+
+    .play-btn {
+        font-size: 1.1rem;
+        padding: 0.4rem;
     }
 }
 
 @media (max-width: 480px) {
-    .story-text {
+    .music-player {
+        max-width: 95%;
+        padding: 1.2rem;
+        margin: 1.2rem auto;
+    }
+
+    .music-player h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .playlist-item {
+        padding: 0.7rem;
+    }
+
+    .song-title {
+        font-size: 0.95rem;
+    }
+
+    .song-artist {
+        font-size: 0.75rem;
+    }
+
+    .play-btn {
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+}
+
+/* 祝福留言樣式 */
+.wishes-section {
+    max-width: 90%;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: none;
+    border-radius: 20px;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.wishes-section:hover {
+    transform: none;
+    box-shadow: none;
+    background: none;
+}
+
+.wishes-section h2 {
+    text-align: center;
+    color: #D9766D;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    position: relative;
+}
+
+/* 移除標題後面的裝飾線條 */
+.couple-info h2::after,
+.wishes-section h2::after {
+    display: none;
+}
+
+.wishes-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: none;
+    border-radius: 15px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.wishes-form:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.wishes-form input,
+.wishes-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(217, 118, 109, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.wishes-form input:focus,
+.wishes-form textarea:focus {
+    outline: none;
+    border-color: #D9766D;
+    box-shadow: 0 0 10px rgba(217, 118, 109, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.wishes-form button {
+    background: linear-gradient(45deg, #D9766D, #B76E79);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 1rem auto 0;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.wishes-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(217, 118, 109, 0.3);
+    background: linear-gradient(45deg, #B76E79, #D9766D);
+}
+
+.wishes-list {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.wish-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.wish-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.wish-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+}
+
+.wish-item:hover::before {
+    transform: translateX(100%);
+}
+
+.wish-item .guest-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #D9766D;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #D9766D, #B76E79);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 6s ease infinite;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.wish-item .wish-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.wish-item .wish-date {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 1rem;
+    text-align: right;
+    font-style: italic;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .wishes-section {
+        padding: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .wishes-form {
+        padding: 1.5rem;
+    }
+
+    .wishes-list {
+        grid-template-columns: 1fr;
+    }
+
+    .wish-item {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wishes-section {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .wishes-form {
+        padding: 1rem;
+    }
+
+    .wishes-form input,
+    .wishes-form textarea {
+        padding: 0.6rem;
+    }
+
+    .wish-item {
+        padding: 1rem;
+    }
+
+    .wish-item .guest-name {
+        font-size: 1.3rem;
+    }
+
+    .wish-item .wish-text {
         font-size: 0.9rem;
     }
-    
-    .date-text {
-        font-size: 1.1rem;
-    }
-    
-    .countdown-text {
-        font-size: 0.9rem;
-    }
-    
-    .countdown-number {
-        font-size: 1.8rem;
-    }
+}
+
+.wedding-details h2 {
+    text-align: center;
+    color: #D9766D;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    position: relative;
+}
+
+/* 統一所有標題字體 */
+section h2 {
+    text-align: center;
+    color: #D9766D;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D9766D, transparent);
+}
+
+/* 移除重複的標題樣式 */
+.wishes-section h2,
+.wedding-details h2,
+.our-story h2,
+.itinerary h2,
+.dress-code h2 {
+    text-align: center;
+    color: #D9766D;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    position: relative;
+}
+
+.wishes-section h2::after,
+.wedding-details h2::after,
+.our-story h2::after,
+.itinerary h2::after,
+.dress-code h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D9766D, transparent);
 } 

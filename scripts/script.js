@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 倒數計時功能
     updateCountdown();
-    // 每天更新一次倒數計時
-    setInterval(updateCountdown, 24 * 60 * 60 * 1000);
+    // 每小時更新一次倒數計時
+    setInterval(updateCountdown, 60 * 60 * 1000);
 });
 
 // Handle form submission with debug logging
