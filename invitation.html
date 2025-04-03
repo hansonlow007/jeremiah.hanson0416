@@ -34,27 +34,16 @@
         <source src="music/wedding-bgm.mp3" type="audio/mp3">
     </audio>
 
-    <header class="slideshow-section">
-        <div class="slideshow-container">
-            <div class="slide active">
-                <img src="images/1.png" alt="Wedding Photo 1">
-            </div>
-            <div class="slide">
-                <img src="images/2.png" alt="Wedding Photo 2">
-            </div>
-            <div class="slide">
-                <img src="images/3.png" alt="Wedding Photo 3">
-            </div>
-            <div class="slide">
-                <img src="images/4.png" alt="Wedding Photo 4">
-            </div>
-            <div class="slide">
-                <img src="images/5.png" alt="Wedding Photo 5">
-            </div>
-
-            <div class="slideshow-controls">
-                <button class="slide-btn prev">❮</button>
-                <button class="slide-btn next">❯</button>
+    <header class="video-section">
+        <div class="video-container">
+            <video id="weddingVideo" autoplay muted loop playsinline>
+                <source src="videos/wedding-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+                <button id="videoToggle" class="video-btn">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -391,5 +380,23 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="scripts/script.js"></script>
+    <script>
+        // Video controls
+        const video = document.getElementById('weddingVideo');
+        const videoToggle = document.getElementById('videoToggle');
+        const volumeIcon = videoToggle.querySelector('i');
+
+        videoToggle.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                volumeIcon.classList.remove('fa-volume-mute');
+                volumeIcon.classList.add('fa-volume-up');
+            } else {
+                video.muted = true;
+                volumeIcon.classList.remove('fa-volume-up');
+                volumeIcon.classList.add('fa-volume-mute');
+            }
+        });
+    </script>
 </body>
 </html>
