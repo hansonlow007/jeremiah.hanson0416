@@ -163,20 +163,7 @@
 
 .verse-reference::before,
 .verse-reference::after {
-    content: '';
-    position: absolute;
-    width: 30%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #D9766D, transparent);
-    top: 50%;
-}
-
-.verse-reference::before {
-    left: 0;
-}
-
-.verse-reference::after {
-    right: 0;
+    display: none;
 }
 
 .verse-text {
@@ -197,14 +184,7 @@
 }
 
 .verse-text::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #D9766D, transparent);
+    display: none;
 }
 
 @media (max-width: 768px) {
