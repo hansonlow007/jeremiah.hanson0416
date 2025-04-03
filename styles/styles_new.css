@@ -587,7 +587,7 @@
     width: 100%;
     position: relative;
     background-color: #000;
-    margin-top: 60px; /* Add margin to account for nav bar height */
+    margin-top: 60px;
 }
 
 .video-container {
@@ -605,31 +605,38 @@
     object-fit: cover;
 }
 
-.video-controls {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
+/* 恢復經文原始字體 */
+.couple-info .bible-verse .verse-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
-.video-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.couple-info .bible-verse .verse-reference {
+    font-family: 'Dancing Script', cursive !important;
+    font-size: 1.6rem;
 }
 
-.video-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive styles for video section */
+/* 調整手機版視頻大小和位置 */
 @media (max-width: 768px) {
     .video-section {
-        margin-top: 50px; /* Slightly smaller margin for mobile */
+        margin-top: 80px; /* 增加上邊距 */
+        height: 80vh;
+    }
+
+    .video-container {
+        height: 100%;
+        padding-top: 0;
+    }
+
+    .video-container video {
+        height: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-section {
+        margin-top: 70px; /* 在更小的屏幕上使用稍小的上邊距 */
+        height: 70vh;
     }
 } 
